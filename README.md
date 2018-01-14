@@ -1,2 +1,2 @@
 # geoscimlrdf
-RDF implementation of OGC GeoSciML 4.1
+Manual implementation of GeoSciML in RDF/OWL using Protégé 5.2
