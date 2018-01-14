@@ -39,6 +39,9 @@ a:Unit1 a:myRelatedFeature1 a:Unit2.
 a:myRelatedFeature singletonPropertyOf  gsml:GeologicRelation;
 	gsml:role <http://foo.com/def/roles/member>.
 
+Skipped GeologicRelation and MaterialRelation until pattern is decided
+-----
+
 GeologicFeature::classifier is a potential "soft-type" for any GeologicFeature.  For example, for GeologicUnit, one could create sub types for specific units 
 from a lexicon (ie, "Trenton Group") instead of treating it as a instance (what IGS has done for RockMaterial...)
 	
@@ -60,6 +63,8 @@ AnthropogenicGeomorphologicFeature::anthropogenicGeomorphologicFeatureType soft 
 Did not model GSML_QuantityRange as it's just an artefact to deal with FES limitations.
 In fact, in should not be in the conceptual model at all, this should be resolved using WFS stored procedure because
 it's a WFS/FES issue.
+
+
 
 CORRECTION TO SPEC 
 - 8.4.1.5.3    Material 

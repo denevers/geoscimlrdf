@@ -131,10 +131,10 @@
         <ObjectProperty IRI="#numericAge"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GeologicUnit"/>
+        <Class IRI="#GeologicFeature"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GeologicFeature"/>
+        <Class IRI="#GeologicUnit"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#reportingDate"/>
@@ -173,13 +173,13 @@
         <ObjectProperty IRI="#classifier"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#olderNamedAge"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#CompositionParts"/>
     </Declaration>
     <Declaration>
         <Class IRI="#NaturalGeomorphologicFeature"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#olderNamedAge"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#occurrence"/>
@@ -191,10 +191,10 @@
         <ObjectProperty IRI="#trend"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
+        <Class IRI="#GSML_PlanarOrientation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GSML_PlanarOrientation"/>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#specification"/>
@@ -218,10 +218,10 @@
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Time"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#shape"/>
+        <DataProperty IRI="http://def.opengeospatial.org/swe-common/2.0#resolutionRepresentativeFraction"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="http://def.opengeospatial.org/swe-common/2.0#resolutionRepresentativeFraction"/>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#shape"/>
     </Declaration>
     <Declaration>
         <Class IRI="#CompoundMaterial"/>
@@ -681,6 +681,11 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Anthropogenic Geomorphologic Feature</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#AnthropogenicGeomorphologicFeature</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entité géomorphologique anthropogénique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#AnthropogenicGeomorphologicFeature</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">An anthropogenic geomorphologic feature is a geomorphologic feature (i.e., landform) which has been created by human activity.  For example, a dredged channel, midden, open pit or reclaimed land.</Literal>
@@ -689,6 +694,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#CompositionParts</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Composition parts</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompositionParts</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Parties compositionnelles</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -701,6 +711,11 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Compound Material</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CompoundMaterial</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Matériel composite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#CompoundMaterial</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A CompoundMaterial is an EarthMaterial composed of particles made of EarthMaterials, possibly including other CompoundMaterials.  This class is provided primarily as an extensibility point for related domain models that wish to import and build on GeoSciML, and wish to define material types that are compound but are not rock or rock-like material. In the context of GeoSciML &quot;RockMaterial&quot; should be used to describe units made of rock.</Literal>
@@ -709,6 +724,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Contact</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contact</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Contact</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Contact</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -721,6 +741,11 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Earth Material</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#EarthMaterial</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Matériel terrestre</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#EarthMaterial</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The EarthMaterial class holds a description of a naturally occurring substance in the Earth.  EarthMaterial represents material composition or substance, and is thus independent of quantity or location. Ideally, EarthMaterials are defined strictly based on physical properties, but because of standard geological usage, genetic interpretations enter into the description as well.</Literal>
@@ -731,6 +756,11 @@
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Fold</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Fold</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Pli</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#Fold</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A fold is formed by one or more systematically curved layers, surfaces, or lines in a rock body. A fold denotes a structure formed by the deformation of a geologic structure, such as a contact which the original undeformed geometry is presumed, to form a structure that may be described by the translation of an abstract line (the fold axis) parallel to itself along some curvilinear path (the fold profile). Folds have a hinge zone (zone of maximum curvature along the surface) and limbs (parts of the deformed surface not in the hinge zone).  Folds are described by an axial surface, hinge line, profile geometry, the solid angle between the limbs, and the relationships between adjacent folded surfaces if the folded structure is a Layering fabric.</Literal>
@@ -739,6 +769,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Foliation</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Foliation</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Foliation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Foliation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -753,6 +788,11 @@ Bedding is a fabric representing the average orientation of paleodepositional su
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geometric Description Value</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GSML_GeometricDescriptionValue</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Valeur de description géométrique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#GSML_GeometricDescriptionValue</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GSML_GeometricDescriptionValue is a special abstract data type for descriptions of planar or linear orientations of a geologic feature.   Different subtypes allow specifying direction by direction vector (e.g. dip/dip direction), compass point (e.g.  NE), or description (e.g. “toward fold hinge”, &quot;below’).</Literal>
@@ -763,9 +803,19 @@ Bedding is a fabric representing the average orientation of paleodepositional su
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Linear Orientation</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GSML_LinearOrientation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Orientation linéaire</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#GSML_LinearOrientation</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A linear orientation is composed of a trend (the compass orientation of the line) and a plunge (the angle from the horizontal).  This vector may be oriented (pointing in a specific direction) or not.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GSML_PlanarOrientation</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Orientation planaire</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -776,6 +826,11 @@ Bedding is a fabric representing the average orientation of paleodepositional su
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#GSML_PlanarOrientation</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A planar orientation is composed of two values; the azimuth (a compass point) and a dip (the angle from the horizontal).  Polarity of the plane indicates whether the planar orientation is associated with a directed feature that is overturned, upright, vertical, etc.  There are several conventions to encode a planar orientation and this specification does not impose one but provides a convention property to report it. It must be noted that allowance for different conventions makes manipulation of the data more difficult. Therefore it is recommended that user communities adopt a single measurement convention.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GSML_Vector</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Vecteur</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -791,6 +846,11 @@ Bedding is a fabric representing the average orientation of paleodepositional su
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GeologicEvent</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geologic Event</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeologicEvent</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Événement géologique</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -820,6 +880,11 @@ Because associated processes are incompatible, a single event cannot be shared b
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geologic Structure</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeologicStructure</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Structure géologique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#GeologicStructure</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A geologic structure is a configuration of matter in the Earth based on describable inhomogeneity, pattern, or fracture in an earth material.  The identity of a GeologicStructure is independent of the material that is the substrate for the structure.  The general GeologicFeatureRelation (available in the Extension package – see 8.5) is used to associate penetrative GeologicStructures with GeologicUnits.  GeoSciML Basic only provides a limited set of core structures (Contact, Fold, ShearDisplacementStructure and Foliation) with a single property to categorise them.  Supplemental properties (through the pattern described in 5.1.1) and geologic structure types are available from the Extension package.</Literal>
@@ -828,6 +893,11 @@ Because associated processes are incompatible, a single event cannot be shared b
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#GeologicUnit</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geologic Unit</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeologicUnit</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Unité géologique</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -840,9 +910,19 @@ Because associated processes are incompatible, a single event cannot be shared b
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Geologic Unit Hierarchy</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeologicUnitHierarchy</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Hiérarchie des unités géologiques</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#GeologicUnitHierarchy</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GeologicUnitHierarchy associates a GeologicUnit with another GeologicUnit that is a proper part of that unit. Parts may be formal or notional. Formal parts refer to a specific body of rock, as in formal stratigraphic members. Notional parts refer to assemblages of particular EarthMaterials with particular internal structure, which may be repeated in various places within a unit (e.g. ‘turbidite sequence’, ‘point bar assemblage’, ‘leucosome veins’).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GeomorphologicFeature</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entité géomorphologique</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -857,12 +937,22 @@ Because associated processes are incompatible, a single event cannot be shared b
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#MappedFeature</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entité cartohgraphique</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MappedFeature</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Mapped Feature</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#MappedFeature</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">A MappedFeature is part of a geological interpretation. It provides a link between a notional feature (description package) and one spatial representation of it, or part of it (exposures, surface traces and intercepts, etc.).  The mapped features are the elements that compose a map, a cross-section, a borehole log, or any other representation.  The mappingFrame identifies the domain being mapped by the geometries.  For typical geological maps, the mapping frame is the surface of the earth (the 2.5D interface between the surface of the bedrock and whatever sits on it; atmosphere or overburden material for bedrock maps).  It can also be abstract frames, such as the arbitrary plane that forms a mine level or a cross-section, the 3D volume enclosing an ore body or the line that approximate the path of a borehole.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NaturalGeomorphologicFeature</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entité géomorphologique naturelle</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -880,9 +970,19 @@ Because associated processes are incompatible, a single event cannot be shared b
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Numeric Age Range</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#NumericAgeRange</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Place d&apos;ages numériques</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>#NumericAgeRange</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The NumericAgeRange class represents an absolute age assignment using numeric measurement results.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#RockMaterial</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Matériel rocheux</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -898,6 +998,11 @@ Because associated processes are incompatible, a single event cannot be shared b
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#ShearDisplacementStructure</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Shear Displacement Structure</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ShearDisplacementStructure</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Structure de déplacement cisaillante</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
@@ -1277,6 +1382,16 @@ Examples: group, subgroup, formation, member, bed, intrusion, complex, batholith
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The property youngerNamedAge:GeochronologicalEraTerm defines the younger boundary of age of event expressed using a geochronologic era defined according to a geologic time scale per the GeologicTime schema. (eg, the International Commission on Stratigraphy Chronostratigraphic Chart - http://www.stratigraphy.org/index.php/ics-chart-timescale).</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Any Feature</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Entité quelconque</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
         <IRI>http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">(Place holder for formal Feature Model Ontology).
@@ -1286,6 +1401,116 @@ Ex: https://github.com/ISO-TC211/GOM/blob/master/isotc211_GOM_harmonizedOntology
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent</IRI>
         <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">SWE:stub</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Abstract Simple Component</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Composante simple abstraite</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Boolean</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Boolean</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Boolean</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Booléen</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Category</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Category</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Catégorie</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#CategoryRange</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Category Range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#CategoryRange</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Plage de catégories</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Count</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Count</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Count</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Dénombrement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#CountRange</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Count Range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#CountRange</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Plage de dénombrement</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Quantity</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Quantity</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Quantity</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Quantité</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#QuantityRange</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Plage de quantités</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#QuantityRange</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Quantity Range</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Text</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Text</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Text</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Texte</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Time</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Temps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#Time</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Time</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#TimeRange</IRI>
+        <Literal xml:lang="fr" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Plage de temps</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>http://def.opengeospatial.org/swe-common/2.0#TimeRange</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Time Range</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
