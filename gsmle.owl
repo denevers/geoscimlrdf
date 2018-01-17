@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://def.isotc211.org/geosciml/gsmle"
+     xml:base="http://def.isotc211.org/geosciml/gsmle#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://def.isotc211.org/geosciml/gsmle"
-     versionIRI="http://def.isotc211.org/geosciml/2018/gsmle">
+     ontologyIRI="http://def.isotc211.org/geosciml/gsmle#"
+     versionIRI="http://def.isotc211.org/geosciml/2018/gsmle#">
     <Prefix name="" IRI="http://def.isotc211.org/geosciml/gsmle"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -16,55 +16,61 @@
     <Import>http://def.isotc211.org/geosciml/2018/gsmlb</Import>
     <Import>https://github.com/GeoscienceAustralia/geosciml.org/commit/24d302bf3f0fa315c1dddc2c734b84f52299cd02#diff-73b17e22072459ab7e06e9ab664a9d48</Import>
     <Declaration>
-        <Class IRI="#FoldAbstractDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ChemicalDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#MaterialRelation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#EarthMaterialAbstractDescription"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#ContactAbstractDescription"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#InorganicFluid"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicEventAbstractDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicUnitAbstractDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#PhysicalDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#DisplacementValue"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ShearDisplacementStructureAbstractDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#AbstractFeatureRelation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RockMaterialDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#SeparationValue"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicFeatureRelation"/>
+        <Class IRI="#FoldAbstractDescription"/>
     </Declaration>
     <Declaration>
         <Class IRI="#SlipComponents"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#NetSlipValue"/>
+        <Class IRI="#Mineral"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicEventAbstractDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#InorganicFluid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShearDisplacementStructureAbstractDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EarthMaterialAbstractDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChemicalDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicUnitAbstractDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RockMaterialDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DisplacementValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicFeatureRelation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SeparationValue"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ParticleGeometryDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AlterationDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FoliationAbstractDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AbstractFeatureRelation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicUnitDescription"/>
     </Declaration>
     <Declaration>
         <Class IRI="#FoldDescription"/>
@@ -73,52 +79,46 @@
         <Class IRI="#CompoundMaterialDescription"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GeologicEventDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ParticleGeometryDescription"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#FoldSystem"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicUnitDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#FoliationAbstractDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ConstituentPart"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Layering"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#BeddingDescription"/>
     </Declaration>
     <Declaration>
         <Class IRI="#ContactDescription"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Layering"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PhysicalDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BeddingDescription"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Organism"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DisplacementEvent"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConstituentPart"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OrganicMaterial"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicEventDescription"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MaterialRelation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NetSlipValue"/>
     </Declaration>
     <Declaration>
         <Class IRI="#FabricDescription"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MetamorphicDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Mineral"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#DisplacementEvent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#AlterationDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#OrganicMaterial"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#AlterationDescription"/>

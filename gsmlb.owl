@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
-     xml:base="http://def.isotc211.org/geosciml/gsmlb"
+     xml:base="http://def.isotc211.org/geosciml/gsmlb#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     ontologyIRI="http://def.isotc211.org/geosciml/gsmlb"
-     versionIRI="http://def.isotc211.org/geosciml/2018/gsmlb">
+     ontologyIRI="http://def.isotc211.org/geosciml/gsmlb#"
+     versionIRI="http://def.isotc211.org/geosciml/2018/gsmlb#">
     <Prefix name="" IRI="http://def.isotc211.org/geosciml/gsmlb"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
@@ -14,163 +14,40 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <ObjectProperty IRI="#composition"/>
+        <Class IRI="#GSML_PlanarOrientation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#MappedFeature"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#purpose"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ShearDisplacementStructure"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeomorphologicFeature"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#QuantityRange"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#mappingFrame"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Text"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#observationMethod"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#NumericAgeRange"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicUnitHierarchy"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#geologicHistory"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#targetUnit"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Boolean"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GSML_LinearOrientation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicEvent"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#olderBoundDate"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#convention"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#unitDescription"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Contact"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#directed"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#role"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#CategoryRange"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#material"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#CountRange"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Fold"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#youngerNamedAge"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#rank"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#profileType"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#determinationMethod"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#descriptiveOrientation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Quantity"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#color"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Foliation"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GSML_GeometricDescriptionValue"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#relatedFeature"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#numericAge"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicFeature"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#GeologicUnit"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#reportingDate"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#magnitude"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Count"/>
+        <ObjectProperty IRI="#occurrence"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hierarchyLink"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#exposure"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#plunge"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GSML_Vector"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#eventEnvironnement"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#EarthMaterial"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#youngerBoundDate"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Category"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#classifier"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#QuantityRange"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#determinationMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#mappingFrame"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#reportingDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#activity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Text"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#convention"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#olderNamedAge"/>
@@ -179,40 +56,169 @@
         <Class IRI="#CompositionParts"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#NaturalGeomorphologicFeature"/>
+        <ObjectProperty IRI="#unitDescription"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#occurrence"/>
+        <ObjectProperty IRI="#profileType"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GeologicStructure"/>
+        <ObjectProperty IRI="#olderBoundDate"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#trend"/>
+        <ObjectProperty IRI="#lithology"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GSML_PlanarOrientation"/>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Boolean"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
+        <ObjectProperty IRI="#polarity"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#specification"/>
+        <ObjectProperty IRI="#azimuth"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#AnthropogenicGeomorphologicFeature"/>
+        <Class IRI="#GSML_GeometricDescriptionValue"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#relatedFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeomorphologicFeature"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#dip"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="http://www.w3.org/2004/02/skos/core#definition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GSML_Vector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#CategoryRange"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#CountRange"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicStructure"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#AnthropogenicGeomorphologicFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#targetUnit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#numericAge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#NaturalGeomorphologicFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#observationMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Quantity"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicUnitHierarchy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#youngerBoundDate"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#geologicHistory"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Contact"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#role"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#proportion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Fold"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Count"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#eventProcess"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CompoundMaterial"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#descriptiveOrientation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RockMaterial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#exposure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#rank"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ShearDisplacementStructure"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#composition"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Foliation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MappedFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#color"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Category"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GSML_LinearOrientation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#purpose"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GeologicFeature"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#youngerNamedAge"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#material"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#specification"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#magnitude"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#trend"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#positionalAccuracy"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#azimuth"/>
+        <Class IRI="#EarthMaterial"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Time"/>
@@ -224,22 +230,16 @@
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#shape"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#CompoundMaterial"/>
+        <ObjectProperty IRI="#directed"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#eventProcess"/>
+        <Class IRI="#NumericAgeRange"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#lithology"/>
+        <Class IRI="#GeologicEvent"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#activity"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RockMaterial"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#polarity"/>
+        <ObjectProperty IRI="#eventEnvironnement"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#TimeRange"/>
