@@ -7,12 +7,13 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://def.isotc211.org/geosciml/gsmlb#"
      versionIRI="http://def.isotc211.org/geosciml/2018/gsmlb#">
-    <Prefix name="" IRI="http://def.isotc211.org/geosciml/gsmlb"/>
+    <Prefix name="" IRI="http://def.isotc211.org/geosciml/gsmlb#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.opengis.net/ont/geosparql</Import>
     <Declaration>
         <Class IRI="#GSML_PlanarOrientation"/>
     </Declaration>
@@ -32,16 +33,16 @@
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#QuantityRange"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#determinationMethod"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#mappingFrame"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#reportingDate"/>
+        <ObjectProperty IRI="#determinationMethod"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#activity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#reportingDate"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Text"/>
@@ -65,10 +66,10 @@
         <ObjectProperty IRI="#olderBoundDate"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#lithology"/>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Boolean"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Boolean"/>
+        <ObjectProperty IRI="#lithology"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#polarity"/>
@@ -158,10 +159,10 @@
         <DataProperty IRI="#descriptiveOrientation"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#RockMaterial"/>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#exposure"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#exposure"/>
+        <Class IRI="#RockMaterial"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#rank"/>
@@ -200,10 +201,10 @@
         <ObjectProperty IRI="#youngerNamedAge"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
+        <ObjectProperty IRI="#material"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#material"/>
+        <Class IRI="http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#specification"/>
@@ -282,7 +283,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#GeologicFeature"/>
-        <Class IRI="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#GeologicStructure"/>
@@ -298,7 +299,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#MappedFeature"/>
-        <Class IRI="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Feature"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#NaturalGeomorphologicFeature"/>
@@ -642,6 +643,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#positionalAccuracy"/>
         <Class IRI="http://def.opengeospatial.org/swe-common/2.0#Quantity"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://def.opengeospatial.org/swe-common/2.0#shape"/>
+        <Class IRI="http://www.opengis.net/ont/geosparql#Geometry"/>
     </ObjectPropertyRange>
     <DataPropertyDomain>
         <DataProperty IRI="#descriptiveOrientation"/>
