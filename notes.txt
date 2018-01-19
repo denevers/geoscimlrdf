@@ -1,12 +1,17 @@
+Use GeoSparql ontology for Feature : http://schemas.opengis.net/geosparql/1.0/
 Did not model Geologic Time since it has been done by Simon already
 Did not model "collection".  RDF already has classes for this (bag, list, etc..)
 Borehole on hold
 Analysis is O&M heavy - need a good O&M encoding (or SOSA ?)
+	in the mean time, use seegrid O&M ontology. http://def.seegrid.csiro.au/static/isotc211/iso19156/2011/
+	This ontology brings a "AnyFeature" which duplicates GeoSparql Feature.  I made GeologicUnit and MappedUnit child of both
 
 Properties.
 For now, all properties that refers to "vocabularies" are just routed to "owl:Thing" instead of SKOS.  To be discussed
 linked to "skos:Concept" implies that all vocabularies are references to resources that are "rdf:type skos:Concept" - maybe 
 this is the intent ?
+
+
 
 == Association Class ==
 AssociationClass , such as relatedFeature.  3 ways to model this.

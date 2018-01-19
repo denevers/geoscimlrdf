@@ -1,182 +1,201 @@
-<?xml version="1.0"?>
-<rdf:RDF xmlns="http://def.isotc211.org/gwml/gwmlb#"
-     xml:base="http://def.isotc211.org/gwml/gwmlb"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://def.isotc211.org/gwml/gwmlb#">
-        <owl:versionIRI rdf:resource="http://def.isotc211.org/gwml/2018/gwmlb#"/>
-        <owl:imports rdf:resource="http://def.isotc211.org/geosciml/2018/gsmlb#"/>
-    </owl:Ontology>
-    
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns="http://def.isotc211.org/gwml/gwmlb#"
+	xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#">
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+	<owl:versionIRI rdf:resource="http://def.isotc211.org/gwml/2018/gwmlb#"/>
+	<owl:imports rdf:resource="http://def.isotc211.org/geosciml/2018/gsmlb#"/>
+</rdf:Description>
+<!--  -->
+<!--  -->
+<!-- ################################################################# -->
+<!-- # -->
+<!-- #    Classes -->
+<!-- # -->
+<!-- ################################################################# -->
+<!--  -->
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Aquifer -->
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Aquifer">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
+	<rdfs:label xml:lang="en">Aquifer</rdfs:label>
+	<skos:definition xml:lang="en">A body of ground that contains, potentially contains or potentially contained sufficient saturated permeable material to yield significant quantities of water to wells and springs (after Lohman and others, 1972).</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_AquiferSystem -->
 
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_AquiferSystem">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
+	<rdfs:label xml:lang="en">Aquifer System</rdfs:label>
+	<skos:definition xml:lang="en">Aquifer system - A body of permeable and poorly permeable material that functions regionally as a water-yielding unit; it comprises two or more permeable beds separated at least locally by confining beds that impede groundwater movement but do not greatly affect the regional hydraulic continuity of the system; includes both saturated and unsaturated parts of permeable material (after ASCE, 1985)</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit -->
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit"/>
+	<rdfs:label xml:lang="en">AquiferUnit</rdfs:label>
+	<skos:definition xml:lang="en">Denotes aquifer-related hydrogeologic units: aquifer systems, aquifers, or confining beds.</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Basin -->
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_Aquifer -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Basin">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit"/>
+	<rdfs:label xml:lang="en">Basin</rdfs:label>
+	<skos:definition xml:lang="en">A large hydrogeologically defined body of ground typically consisting of hydraulically connected hydrogeological units, whose waters are flowing to a common or multiple outlets, and which is delimited by a groundwater divide</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_BodySurface -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Aquifer">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
-        <rdfs:label xml:lang="en">Aquifer</rdfs:label>
-        <skos:definition xml:lang="en">A body of ground that contains, potentially contains or potentially contained sufficient saturated permeable material to yield significant quantities of water to wells and springs (after Lohman and others, 1972).</skos:definition>
-    </owl:Class>
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_BodySurface">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+</rdf:Description>
 
+<rdf:Description rdf:about="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_AquiferSystem -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_BodySurface">
+	<rdfs:label xml:lang="en">Body surface</rdfs:label>
+	<skos:definition xml:lang="en">A surface on a body of groundwater, for a local or regional area, e.g. piezometric, potentiometric, water table, salt wedge, etc.</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_ConfiningBed -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_AquiferSystem">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
-        <rdfs:label xml:lang="en">Aquifer System</rdfs:label>
-        <skos:definition xml:lang="en">Aquifer system - A body of permeable and poorly permeable material that functions regionally as a water-yielding unit; it comprises two or more permeable beds separated at least locally by confining beds that impede groundwater movement but do not greatly affect the regional hydraulic continuity of the system; includes both saturated and unsaturated parts of permeable material (after ASCE, 1985)</skos:definition>
-    </owl:Class>
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_ConfiningBed">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
+	<rdfs:label xml:lang="en">Confining bed</rdfs:label>
+	<skos:definition xml:lang="en">A layer of rock having very low porosity and in consequence hydraulic conductivity that hampers the movement of water into and out of an aquifer (Heath 1983)</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Discharge -->
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Discharge">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_InterFlow"/>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Divide -->
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Divide">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+	<rdfs:label xml:lang="en">Divide</rdfs:label>
+	<skos:definition xml:lang="en">Line on a water table or piezometric surface on either side of which the groundwater flow diverges. IGH0556</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Flow -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit"/>
-        <rdfs:label xml:lang="en">AquiferUnit</rdfs:label>
-        <skos:definition xml:lang="en">Denotes aquifer-related hydrogeologic units: aquifer systems, aquifers, or confining beds.</skos:definition>
-    </owl:Class>
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Flow">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_FlowSystem"/>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_FlowSystem -->
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_FlowSystem">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+	<rdfs:label xml:lang="en">Flow system</rdfs:label>
+	<skos:definition xml:lang="en">Flow path from recharge to discharge location, through hydrogeologic units, and related to a groundwater body. It is a collection or aggregation of specific flows.</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_FluidBody -->
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_Basin -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_FluidBody">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+	<rdfs:label xml:lang="en">Fluid body</rdfs:label>
+	<skos:definition xml:lang="en">A distinct body of some fluid (liquid, gas) that fills the voids of a container such as an aquifer, system of aquifers, water well, etc; in hydrogeology this body is usually constituted from groundwater, but the model allows for other types of fillers e.g. petroleum</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Basin">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit"/>
-        <rdfs:label xml:lang="en">Basin</rdfs:label>
-        <skos:definition xml:lang="en">A large hydrogeologically defined body of ground typically consisting of hydraulically connected hydrogeological units, whose waters are flowing to a common or multiple outlets, and which is delimited by a groundwater divide</skos:definition>
-    </owl:Class>
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/geosciml/gsmlb##GeologicFeature"/>
+	<rdfs:label xml:lang="en">Hydrogeological unit</rdfs:label>
+	<skos:definition xml:lang="en">Any soil or rock unit or zone which by virtue of its hydraulic properties has a distinct influence on the storage or movement of groundwater (after ANS, 1980).</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoVoid -->
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoVoid">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+	<skos:definition xml:lang="en">Hydrogeological void</skos:definition>
+	<skos:definition xml:lang="en">Voids represent the spaces inside (hosted by) a unit or its material. E.g. the pores in an aquifer, or in the sandstone of an aquifer. Voids are hosted by a container (e.g. an aquifer), and can contain water bodies. Voids are differentiated from 'porosity' in that porosity is the proportion of void volume to total volume (i.e. container + voids), while voids are the spaces themselves. Their delineation as a distinct entity is necessary, for example, to capture the volume of fractures in an aquifer</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_InterFlow -->
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_BodySurface -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_InterFlow">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_Flow"/>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_ManagementArea -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_BodySurface">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <rdfs:label xml:lang="en">Body surface</rdfs:label>
-        <skos:definition xml:lang="en">A surface on a body of groundwater, for a local or regional area, e.g. piezometric, potentiometric, water table, salt wedge, etc.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_ConfiningBed -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_ConfiningBed">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_AquiferUnit"/>
-        <rdfs:label xml:lang="en">Confining bed</rdfs:label>
-        <skos:definition xml:lang="en">A layer of rock having very low porosity and in consequence hydraulic conductivity that hampers the movement of water into and out of an aquifer (Heath 1983)</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_Divide -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Divide">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <rdfs:label xml:lang="en">Divide</rdfs:label>
-        <skos:definition xml:lang="en">Line on a water table or piezometric surface on either side of which the groundwater flow diverges. IGH0556</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_FlowSystem -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_FlowSystem">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <rdfs:label xml:lang="en">Flow system</rdfs:label>
-        <skos:definition xml:lang="en">Flow path from recharge to discharge location, through hydrogeologic units, and related to a groundwater body. It is a collection or aggregation of specific flows.</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_FluidBody -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_FluidBody">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <rdfs:label xml:lang="en">Fluid body</rdfs:label>
-        <skos:definition xml:lang="en">A distinct body of some fluid (liquid, gas) that fills the voids of a container such as an aquifer, system of aquifers, water well, etc; in hydrogeology this body is usually constituted from groundwater, but the model allows for other types of fillers e.g. petroleum</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoUnit">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/geosciml/gsmlb##GeologicFeature"/>
-        <rdfs:label xml:lang="en">Hydrogeological unit</rdfs:label>
-        <skos:definition xml:lang="en">Any soil or rock unit or zone which by virtue of its hydraulic properties has a distinct influence on the storage or movement of groundwater (after ANS, 1980).</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoVoid -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_HydrogeoVoid">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <skos:definition xml:lang="en">Hydrogeological void</skos:definition>
-        <skos:definition xml:lang="en">Voids represent the spaces inside (hosted by) a unit or its material. E.g. the pores in an aquifer, or in the sandstone of an aquifer. Voids are hosted by a container (e.g. an aquifer), and can contain water bodies. Voids are differentiated from &apos;porosity&apos; in that porosity is the proportion of void volume to total volume (i.e. container + voids), while voids are the spaces themselves. Their delineation as a distinct entity is necessary, for example, to capture the volume of fractures in an aquifer</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_ManagementArea -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_ManagementArea">
-        <rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
-        <rdfs:label xml:lang="en">Management Area</rdfs:label>
-        <skos:definition xml:lang="en">The GW_ManagementArea class defines properties associated with areas identified for management purposes. These can be delineated by human factors such as policy or regulation concerns, as well as domain (in this case hydrogeologic or hydrologic) concerns. The management area does not necessarily align exactly with the associated hydrogeologic feature boundaries.  
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_ManagementArea">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature"/>
+	<rdfs:label xml:lang="en">Management Area</rdfs:label>
+	<skos:definition xml:lang="en">The GW_ManagementArea class defines properties associated with areas identified for management purposes. These can be delineated by human factors such as policy or regulation concerns, as well as domain (in this case hydrogeologic or hydrologic) concerns. The management area does not necessarily align exactly with the associated hydrogeologic feature boundaries.  
   
-A placeholder (stub) to associated  legislative and reference documentation is provided, as a description of the properties of the associated classes is considered out of scope for GroundWaterML2. The INSPIRE Generic Conceptual Model &apos;Legislation References&apos; and &apos;DocumentCitation&apos; classes, created also to cover EU Directives reporting, provides possible candidates for these end association classes.   
+A placeholder (stub) to associated  legislative and reference documentation is provided, as a description of the properties of the associated classes is considered out of scope for GroundWaterML2. The INSPIRE Generic Conceptual Model 'Legislation References' and 'DocumentCitation' classes, created also to cover EU Directives reporting, provides possible candidates for these end association classes.   
   
-The GW_ManagementArea class identifies properties associated with managing a human defined area over real world features, in this case groundwater related features. As such, this class could provide a pattern for a more generic OGC &apos;trans-domain&apos; feature management class.&quot;  
+The GW_ManagementArea class identifies properties associated with managing a human defined area over real world features, in this case groundwater related features. As such, this class could provide a pattern for a more generic OGC 'trans-domain' feature management class."  
 This class is equivalent to Inspire AM:ManagementRestrictionOrRegulationZone.</skos:definition>
-    </owl:Class>
-    
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Mixture -->
 
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Mixture">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:label xml:lang="en">Mixture</rdfs:label>
+	<skos:definition xml:lang="en">The nature of the inclusion of the constituent in the fluid body, e.g. suspension, emulsion, etc.</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_Recharge -->
 
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_Mixture -->
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Recharge">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:subClassOf rdf:resource="http://def.isotc211.org/gwml/gwmlb#GW_InterFlow"/>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_UnitFluidProperty -->
 
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_Mixture">
-        <rdfs:label xml:lang="en">Mixture</rdfs:label>
-        <skos:definition xml:lang="en">The nature of the inclusion of the constituent in the fluid body, e.g. suspension, emulsion, etc.</skos:definition>
-    </owl:Class>
-    
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_UnitFluidProperty">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:label xml:lang="en">Unit fluid property</rdfs:label>
+	<skos:definition xml:lang="en">A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/gwml/gwmlb#GW_UnitVoidProperty -->
 
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_UnitFluidProperty -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_UnitFluidProperty">
-        <rdfs:label xml:lang="en">Unit fluid property</rdfs:label>
-        <skos:definition xml:lang="en">A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity</skos:definition>
-    </owl:Class>
-    
-
-
-    <!-- http://def.isotc211.org/gwml/gwmlb#GW_UnitVoidProperty -->
-
-    <owl:Class rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_UnitVoidProperty">
-        <rdfs:label xml:lang="en">Unit void property</rdfs:label>
-        <skos:definition xml:lang="en">A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity.</skos:definition>
-    </owl:Class>
-</rdf:RDF>
-
-
-
+<rdf:Description rdf:about="http://def.isotc211.org/gwml/gwmlb#GW_UnitVoidProperty">
+	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+	<rdfs:label xml:lang="en">Unit void property</rdfs:label>
+	<skos:definition xml:lang="en">A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity.</skos:definition>
+</rdf:Description>
+<!--  -->
+<!-- http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature -->
+<!--  -->
 <!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
+</rdf:RDF>
