@@ -1,0 +1,502 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://def.isotc211.org/geosciml/gsmlb#>
+  a owl:Ontology ;
+  owl:versionIRI <http://def.isotc211.org/geosciml/2018/gsmlb#> ;
+  owl:imports <http://www.opengis.net/ont/geosparql>, <https://www.seegrid.csiro.au/subversion/xmml/ontologies/tags/201311/ISOTC211/HM/sampling.rdf> .
+
+skos:definition a owl:AnnotationProperty .
+<http://def.isotc211.org/geosciml/gsmlb##activity>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##NaturalGeomorphologicFeature> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Category> ;
+  rdfs:label "activity"@en ;
+  skos:definition "The activity property (SWE::Category) contains a category term from a controlled vocabulary describing the current activity status of the geomorphologic feature (e.g., currently active, dormant, inactive, reactivated, etc.)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##azimuth>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_PlanarOrientation> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "azimuth"@en ;
+  skos:definition "The azimuth (SWE::QuantityRange) property (compass point, bearing etc.) contains the value of the orientation. The convention property (8.4.6.2.1) reports how azimuth is interpreted (if it is relative to a quadrant)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##classifier>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:label "classifier"@en ;
+  skos:definition "The classifier  contains a standard description or definition of the feature type (e.g., the definition of a particular geologic unit in a stratigraphic lexicon)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##color>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##EarthMaterial> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Category> ;
+  rdfs:label "color"@en ;
+  skos:definition "The color property (SWE::Category) is a term from a controlled vocabulary that specifies the colour of the earth material. Color schemes such as the Munsell rock and soil color schemes may be used."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##composition>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicUnit> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##CompositionParts> ;
+  rdfs:label "composition"@en ;
+  skos:definition "The property composition is an association that links a GeologicUnit with CompositionParts to describe the material composition of the GeologicUnit (e.g., a detailed, instance specific, lithologic description)"@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##convention>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_PlanarOrientation> ;
+  rdfs:label "convention"@en ;
+  skos:definition "The property convention:ConventionCode contains the convention used for the measurement from a controlled vocabulary."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##determinationMethod>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_GeometricDescriptionValue> ;
+  rdfs:label "determination method"@en ;
+  skos:definition "The determinationMethod:DeterminationMethodTerm  property describes the way the orientation value was determined (e.g. measured, inferred from dip slope, etc.) using a reference to a controlled vocabulary."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##dip>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_PlanarOrientation> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "dip"@en ;
+  skos:definition "The dip (SWE::QuantityRange) reports the angle that the structural surface (e.g. bedding, fault plane) makes with the horizontal measured perpendicular to the strike of the structure and in the vertical plane as a numeric value or term."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##directed>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_LinearOrientation> ;
+  rdfs:label "directed"@en ;
+  skos:definition "The directed:LinearDirectedCode property indicates if the orientation represents a linear feature that is directed, e.g. clast imbrication, mylonitic lineation with sense of shear, slickenlines with displacement direction, rather than undirected (like a fold hinge line or intersection lineations).  A code list will indicate which is the directed end of the linear orientation.  The value of the property comes from a controlled vocabulary."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##eventEnvironnement>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Category> ;
+  rdfs:label "event environnement"@en ;
+  skos:definition "The eventEnvironment property (SWE::Category) is a category from a controlled vocabulary identifying the physical setting within which a GeologicEvent takes place. Event environment is construed broadly to include physical settings on the Earth surface specified by climate, tectonics, physiography or geography, and settings in the Earth’s interior specified by pressure, temperature, chemical environment, or tectonics."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##eventProcess>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:label "event process"@en ;
+  skos:definition "The eventProcess:EventProcessTerm property provides a term from a controlled vocabulary specifying the process or processes that occurred during the event. Examples include deposition, extrusion, intrusion, cooling."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##geologicHistory>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:label "geologic history"@en ;
+  skos:definition "The geologicHistory is an association that relates one or more GeologicEvents to a GeologicFeature to describe their age or geologic history.  Normally, GeoSciML uses the generic relatedFeature::GeologicRelation to associate GeologicFeature with other GeologicFeatures, including GeologicEvent.  However, this design was deemed too complex for GeoSciML Basic and is therefore only available from the GeoSciML Extension package."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##hierarchyLink>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicUnit> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy> ;
+  rdfs:label "hierarchy link"@en ;
+  skos:definition "The property hierarchyLink is an association that links a GeologicUnit with a GeologicUnitHierarchy to represent containment of a part GeologicUnit within another GeologicUnit. It indicates a subsidiary unit with its role and proportion with respect to the container unit.  For example, members are described as part of formations, or different facies can be described as parts of a GeologicUnit."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##lithology>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##RockMaterial> ;
+  rdfs:label "lithology"@en ;
+  skos:definition "The lithology:LithologyTerm property provides a term identifying the lithology class from a controlled vocabulary."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##magnitude>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_Vector> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "magnitude"@en ;
+  skos:definition "The magnitude property (SWE::QuantityRange) reports the magnitude of the vector."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##material>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##EarthMaterial> ;
+  rdfs:label "material"@en ;
+  skos:definition "The material:EarthMaterial property contains the material description of the composing part."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##numericAge>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##NumericAgeRange> ;
+  rdfs:label "numeric age"@en ;
+  skos:definition "The numericAge:NumericAgeRange property provides an age in absolute year before present (BP).  Present is defined by convention to be January 1st 1950 (although van der Plitch & Hogg [20], suggests this convention to be restricted to radiocarbon estimations)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##observationMethod>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature>, <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:label "méthode d'observation"@fr, "observation method"@en ;
+  skos:definition "The GeologicFeature observationMethod (SWE::Category) specifies the approach to acquiring the collection of attribute values that constitute an individual feature instance (e.g. point count, brunton compass on site, air photo interpretation, field observation, hand specimen, laboratory, aerial photography, creative imagination)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##occurrence>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:label "occurrence"@en ;
+  skos:definition "The occurrence property is an association that links a notional geologic feature with any number of mapped features (MappedFeature).  A geologic feature, such as a geologic unit may be linked to mapped features from a number of different maps."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##olderBoundDate>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##NumericAgeRange> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Quantity> ;
+  rdfs:label "older bound date"@en ;
+  skos:definition "The olderBoundDate (SWE::Quantity) property reports the older bounding time coordinate in an age range."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##olderNamedAge>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:label "older named age"@en ;
+  skos:definition "The property olderNamedAge:GeochronologicalEraTerm defines the older boundary of age of an event expressed using a geochronologic era defined according to a geologic time scale as per the GeologicTime schema (eg, the International Commission on Stratigraphy Chronostratigraphic Chart - http://www.stratigraphy.org/index.php/ics-chart-timescale)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##plunge>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_LinearOrientation> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "plunge"@en ;
+  skos:definition "The property plunge (SWE::QuantityRange) reports the magnitude of the plunge as an angle from horizontal."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##polarity>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_PlanarOrientation> ;
+  rdfs:label "polarity"@en ;
+  skos:definition "The polarity:PolarityCode indicates whether the planar orientation is associated with a directed feature that is overturned, upright, vertical etc., using a controlled vocabulary."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##profileType>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##Fold> ;
+  rdfs:label "profile type"@en ;
+  skos:definition "The property profileType:FoldProfileTypeTerm contains a term from a controlled vocabulary specifying the concave/convex geometry of fold relative to earth surface, and relationship to younging direction in folded strata if known. (e.g., antiform, synform, neutral, anticline, syncline, monocline, ptygmatic)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##proportion>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##CompositionParts>, <http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "proportion"@en ;
+  skos:definition "The proportion property (SWE::QuantityRange) provides a quantity that represents the fraction of the whole formed by the part."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##rank>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicUnit> ;
+  rdfs:label "rank"@en ;
+  skos:definition """The property rank:RankTerm contains a term that classifies the geologic unit in a generalization hierarchy from most local/smallest volume to most regional/largest.
+
+Examples: group, subgroup, formation, member, bed, intrusion, complex, batholith"""@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##relatedFeature>
+  a owl:ObjectProperty, owl:SymmetricProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:comment "should it be Transitive ?"@en ;
+  rdfs:label "related feature"@en ;
+  skos:definition "A relatedFeature is a general structure used to define relationships between any features or objects within GeoSciML. Relationships are always binary and directional.  There is always a single source and a single target for a given FeatureRelation (which is abstract in GeoSciML Basic).  The relationship is always defined from the perspective of the Source and is generally an active verb."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##reportingDate>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##NumericAgeRange> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Quantity> ;
+  rdfs:label "reporting date"@en ;
+  skos:definition "The reportingDate (SWE::Quantity) property reports a single time coordinate value to report as representative for this NumericAge assignment."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##role>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##CompositionParts>, <http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy> ;
+  rdfs:label "role"@en ;
+  skos:definition "role of the parts on the whole. Vocabulary differs depending of the owner"@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##targetUnit>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##GeologicUnit> ;
+  rdfs:label "target unit"@en ;
+  skos:definition "The property targetUnit is an association that specifies exactly one GeologicUnit that is a proper part of another GeologicUnit."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##trend>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_LinearOrientation> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#QuantityRange> ;
+  rdfs:label "trend"@en ;
+  skos:definition "The property trend (SWE::QuantityRange) reports the azimuth (compass bearing) value of the linear orientation."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##unitDescription>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeomorphologicFeature> ;
+  rdfs:range <http://def.isotc211.org/geosciml/gsmlb##GeologicUnit> ;
+  rdfs:label "unit description"@en ;
+  skos:definition "The unitDescription property is an association that links the geomorphologic feature to a geologic description (e.g., related stratigraphic units and earth materials)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##youngerBoundDate>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##NumericAgeRange> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Quantity> ;
+  rdfs:label "younger bound date"@en ;
+  skos:definition "The youngerBoundDate (SWE::Quantity) property reports the younger bounding time coordinate in an age range."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##youngerNamedAge>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GeologicEvent> ;
+  rdfs:label "younger named age"@en ;
+  skos:definition "The property youngerNamedAge:GeochronologicalEraTerm defines the younger boundary of age of event expressed using a geochronologic era defined according to a geologic time scale per the GeologicTime schema. (eg, the International Commission on Stratigraphy Chronostratigraphic Chart - http://www.stratigraphy.org/index.php/ics-chart-timescale)."@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#exposure>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> .
+
+<http://def.opengeospatial.org/swe-common/2.0#mappingFrame>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:label "mapping frame"@en ;
+  skos:definition "The mappingFrame:MappingFrameTerm provides a term from a vocabulary indicating the geometric frame on which the MappedFeature is projected.  In most situations, mapped features are projected on the earth surface, but there are other contexts, such as a bedrock surface beneath surficial cover materials, a mine level, or a cross section."@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#positionalAccuracy>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:range <http://def.opengeospatial.org/swe-common/2.0#Quantity> ;
+  rdfs:label "positional accuracy"@en ;
+  skos:definition "The positionalAccuracy property provides a quantitative value defining the radius of an uncertainty buffer around a MappedFeature (e.g., a positionalAccuracy of 100 m for a line feature defines a buffer polygon of total width 200 m centred on the line).  The property is equivalent to ISO19115 DQ_PositionalAccuracy."@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#shape>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:range <http://www.opengis.net/ont/geosparql#Geometry> ;
+  rdfs:label "shape"@en ;
+  skos:definition "The shape:GM_Object property contains the geometry delimiting the mapped feature.  Note that while in most cases, the geometry will be a 2D polygon, it is not restricted to any dimension.  For instance, a lithological log can be represented using of 1D geometries (expressed linearly from the borehole origin), or a geologic unit can be represented using a 3D volume."@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#specification>
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:label "shape"@en ;
+  skos:definition "The specification association links an instance of MappedFeature to the GFI_Feature being mapped. In a geological map, MappedFeatures are used to represent GeologicFeatures, but other features from other domains could be represented."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##descriptiveOrientation>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##GSML_GeometricDescriptionValue> ;
+  rdfs:range xsd:string ;
+  rdfs:label "descriptive orientation"@en ;
+  skos:definition "The descriptionOrientation:Primitive::CharacterString contains a textual specification of orientation, possibly referencing some local geography (e.g. “toward fold hinge”, “below”)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##purpose>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##EarthMaterial>, <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:range [
+    a rdfs:Datatype ;
+    owl:oneOf (
+     "definingNorm"
+     "instance"
+     "typicalNorm"
+   )
+  ] ;
+  rdfs:label "purpose"@en ;
+  skos:definition "The property purpose specifies the intended purpose/level of abstraction for a given feature or object instance.  The possible values are: instance, typicalNorm, and definingNorm."@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#resolutionRepresentativeFraction>
+  a owl:DatatypeProperty ;
+  rdfs:domain <http://def.isotc211.org/geosciml/gsmlb##MappedFeature> ;
+  rdfs:range xsd:double ;
+  rdfs:label "resolution representative fraction" ;
+  skos:definition "The property resolutionRepresentativeFraction:Integer is an integer value representing the denominator of the representative scale of the spatial feature.  (i.e., 10000 = the spatial feature is intended to be represented at 1:10,000 scale)." .
+
+<http://def.isotc211.org/geosciml/gsmlb##AnthropogenicGeomorphologicFeature>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeomorphologicFeature> ;
+  rdfs:label "Anthropogenic Geomorphologic Feature"@en, "Entité géomorphologique anthropogénique"@fr ;
+  skos:definition "An anthropogenic geomorphologic feature is a geomorphologic feature (i.e., landform) which has been created by human activity.  For example, a dredged channel, midden, open pit or reclaimed land."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##CompositionParts>
+  a owl:Class ;
+  rdfs:label "Composition parts"@en, "Parties compositionnelles"@fr ;
+  skos:definition "CompositionPart represents the composition of a geologic unit in terms of earth material constituents (CompoundMaterial).  It decomposes the material making of the unit into parts having distinct roles and proportions."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##CompoundMaterial>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##EarthMaterial> ;
+  rdfs:label "Compound Material"@en, "Matériel composite"@fr ;
+  skos:definition "A CompoundMaterial is an EarthMaterial composed of particles made of EarthMaterials, possibly including other CompoundMaterials.  This class is provided primarily as an extensibility point for related domain models that wish to import and build on GeoSciML, and wish to define material types that are compound but are not rock or rock-like material. In the context of GeoSciML \"RockMaterial\" should be used to describe units made of rock."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##Contact>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicStructure> ;
+  rdfs:label "Contact"@en, "Contact"@fr ;
+  skos:definition "A contact is a general concept representing any kind of surface separating two geologic units, including primary boundaries such as depositional contacts, all kinds of unconformities, intrusive contacts, and gradational contacts, as well as faults that separate geologic units."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##EarthMaterial>
+  a owl:Class ;
+  rdfs:label "Earth Material"@en, "Matériel terrestre"@fr ;
+  skos:definition "The EarthMaterial class holds a description of a naturally occurring substance in the Earth.  EarthMaterial represents material composition or substance, and is thus independent of quantity or location. Ideally, EarthMaterials are defined strictly based on physical properties, but because of standard geological usage, genetic interpretations enter into the description as well."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##Fold>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicStructure> ;
+  rdfs:label "Fold"@en, "Pli"@fr ;
+  skos:definition "A fold is formed by one or more systematically curved layers, surfaces, or lines in a rock body. A fold denotes a structure formed by the deformation of a geologic structure, such as a contact which the original undeformed geometry is presumed, to form a structure that may be described by the translation of an abstract line (the fold axis) parallel to itself along some curvilinear path (the fold profile). Folds have a hinge zone (zone of maximum curvature along the surface) and limbs (parts of the deformed surface not in the hinge zone).  Folds are described by an axial surface, hinge line, profile geometry, the solid angle between the limbs, and the relationships between adjacent folded surfaces if the folded structure is a Layering fabric."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##Foliation>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicStructure> ;
+  rdfs:label "Foliation"@en, "Foliation"@fr ;
+  skos:definition """A foliation is a planar arrangement of textural or structural features in any type of rock.  It includes any of a wide variety of penetrative planar geological structures that may be present in a rock.  Examples include schistosity, mylonitic foliation, penetrative bedding structure (lamination), and cleavage.  Following the proposed definition of gneiss by the NADM Science Language Technical Team [12], penetrative planar foliation defined by layers > 5 mm thick is considered Layering.
+
+Bedding is a fabric representing the average orientation of paleodepositional surface and should be encoded through the foliationType property.  It might apply to bedding that is layering or a foliation without layering (e.g. clast alignment in amalgamated beds)."""@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GSML_GeometricDescriptionValue>
+  a owl:Class ;
+  rdfs:label "Geometric Description Value"@en, "Valeur de description géométrique"@fr ;
+  skos:definition "GSML_GeometricDescriptionValue is a special abstract data type for descriptions of planar or linear orientations of a geologic feature.   Different subtypes allow specifying direction by direction vector (e.g. dip/dip direction), compass point (e.g.  NE), or description (e.g. “toward fold hinge”, \"below’)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GSML_LinearOrientation>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GSML_GeometricDescriptionValue> ;
+  rdfs:label "Linear Orientation"@en, "Orientation linéaire"@fr ;
+  skos:definition "A linear orientation is composed of a trend (the compass orientation of the line) and a plunge (the angle from the horizontal).  This vector may be oriented (pointing in a specific direction) or not."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GSML_PlanarOrientation>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GSML_GeometricDescriptionValue> ;
+  rdfs:label "Orientation planaire"@fr, "Planar Orientation"@en ;
+  skos:definition "A planar orientation is composed of two values; the azimuth (a compass point) and a dip (the angle from the horizontal).  Polarity of the plane indicates whether the planar orientation is associated with a directed feature that is overturned, upright, vertical, etc.  There are several conventions to encode a planar orientation and this specification does not impose one but provides a convention property to report it. It must be noted that allowance for different conventions makes manipulation of the data more difficult. Therefore it is recommended that user communities adopt a single measurement convention."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GSML_Vector>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GSML_LinearOrientation> ;
+  rdfs:label "Vecteur"@fr, "Vector"@en ;
+  skos:definition "A GSML_Vector is a data type representing a linear orientation with a magnitude (a quantity assigned to this vector).   If the magnitude is unknown, a GSML_LinearOrientation  shall be used."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeologicEvent>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:label "Geologic Event"@en, "Événement géologique"@fr ;
+  skos:definition """A GeologicEvent is an identifiable event during which one or more geological processes act to modify geological entities.  It may have a specified geologic age (numeric age or GeochologicEraTerm) and may have specified environments and processes. An example might be a cratonic uplift event during which erosion, sedimentation, and volcanism all take place.
+
+Because associated processes are incompatible, a single event cannot be shared between DisplacementEvent, AlterationDescription of MetamorphicDescription (a process associated to DisplacementEvent does not apply to AlterationDescription)."""@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeologicFeature>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature>, <http://www.opengis.net/ont/geosparql#Feature> ;
+  rdfs:label "Entité géologique"@fr, "Geologic Feature"@en ;
+  skos:definition "The abstract GeologicFeature class represents a conceptual feature that is hypothesized to exist coherently in the world.  It corresponds with a “legend item” from a traditional geologic map and its instance acts as the “description package”.  The description package is classified according to its intended purpose as a typicalNorm, definingNorm or instance.  GeologicFeature can be used outside the context of a map (it can lack a MappedFeature), for example when describing typical norms (describing expected property from a feature) or defining norms (describing properties required from a feature to be classifying in a group, such as given geologic unit).  A GeologicFeature appearing on a map is considered as an “instance”."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeologicStructure>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:label "Geologic Structure"@en, "Structure géologique"@fr ;
+  skos:definition "A geologic structure is a configuration of matter in the Earth based on describable inhomogeneity, pattern, or fracture in an earth material.  The identity of a GeologicStructure is independent of the material that is the substrate for the structure.  The general GeologicFeatureRelation (available in the Extension package – see 8.5) is used to associate penetrative GeologicStructures with GeologicUnits.  GeoSciML Basic only provides a limited set of core structures (Contact, Fold, ShearDisplacementStructure and Foliation) with a single property to categorise them.  Supplemental properties (through the pattern described in 5.1.1) and geologic structure types are available from the Extension package."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeologicUnit>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:label "Geologic Unit"@en, "Unité géologique"@fr ;
+  skos:definition "Conceptually, a GeologicUnit may represent a body of material in the Earth whose complete and precise extent is inferred to exist (e.g., North American Data Model GeologicUnit [12], Stratigraphic unit in the sense of NACSN [14], or International Stratigraphic Code [9]), or a classifier used to characterize parts of the Earth (e.g. lithologic map unit like ‘granitic rock’ or ‘alluvial deposit’, surficial units like ‘till’ or ‘old alluvium’). It includes both formal units (i.e. formally adopted and named in an official lexicon) and informal units (i.e. named but not promoted to a lexicon) and unnamed units (i.e., recognizable, described and delineable in the field but not otherwise formalised).  In simpler terms, a geologic unit is a package of earth material (generally rock)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeologicUnitHierarchy>
+  a owl:Class ;
+  rdfs:label "Geologic Unit Hierarchy"@en, "Hiérarchie des unités géologiques"@fr ;
+  skos:definition "GeologicUnitHierarchy associates a GeologicUnit with another GeologicUnit that is a proper part of that unit. Parts may be formal or notional. Formal parts refer to a specific body of rock, as in formal stratigraphic members. Notional parts refer to assemblages of particular EarthMaterials with particular internal structure, which may be repeated in various places within a unit (e.g. ‘turbidite sequence’, ‘point bar assemblage’, ‘leucosome veins’)."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##GeomorphologicFeature>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicFeature> ;
+  rdfs:label "Entité géomorphologique"@fr, "Geomorphologic Feature"@en ;
+  skos:definition "A geomorphologic feature is a kind of GeologicFeature describing the shape and nature of the Earth’s land surface.  These landforms may be created by natural Earth processes (e.g., river channel, beach, moraine or mountain) or through human (anthropogenic) activity (e.g., dredged channel, reclaimed land, mine waste dumps).  In GeoSciML, the geomorphologic feature is modelled as a feature related (through unitDescription property) to a GeologicUnit that composes the form."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##MappedFeature>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.seegrid.csiro.au/isotc211/iso19109/2005/feature#AnyFeature>, <http://www.opengis.net/ont/geosparql#Feature> ;
+  rdfs:label "Entité cartohgraphique"@fr, "Mapped Feature"@en ;
+  skos:definition "A MappedFeature is part of a geological interpretation. It provides a link between a notional feature (description package) and one spatial representation of it, or part of it (exposures, surface traces and intercepts, etc.).  The mapped features are the elements that compose a map, a cross-section, a borehole log, or any other representation.  The mappingFrame identifies the domain being mapped by the geometries.  For typical geological maps, the mapping frame is the surface of the earth (the 2.5D interface between the surface of the bedrock and whatever sits on it; atmosphere or overburden material for bedrock maps).  It can also be abstract frames, such as the arbitrary plane that forms a mine level or a cross-section, the 3D volume enclosing an ore body or the line that approximate the path of a borehole."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##NaturalGeomorphologicFeature>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeomorphologicFeature> ;
+  rdfs:label "Entité géomorphologique naturelle"@fr, "Natural Geomorphologic Feature"@en ;
+  skos:definition "A natural geomorphologic feature is a geomorphologic feature (i.e., landform) that has been created by natural Earth processes. For example, river channel, beach ridge, caldera, canyon, moraine or mud flat."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##NumericAgeRange>
+  a owl:Class ;
+  rdfs:label "Numeric Age Range"@en, "Place d'ages numériques"@fr ;
+  skos:definition "The NumericAgeRange class represents an absolute age assignment using numeric measurement results."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##RockMaterial>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##CompoundMaterial> ;
+  rdfs:label "Matériel rocheux"@fr, "Rock Material"@en ;
+  skos:definition "RockMaterial is a specialized CompoundMaterial that includes consolidated and unconsolidated materials (such as surficial sediments) as well as mixtures of consolidated and unconsolidated materials.  In GeoSciML Basic, Rock Material is essentially a link to a controlled vocabulary (lithology property) and a color (inherited from EarthMaterial).  Specific material properties (and CompoundMaterial nesting) are available in GeoSciML Extension."@en .
+
+<http://def.isotc211.org/geosciml/gsmlb##ShearDisplacementStructure>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb##GeologicStructure> ;
+  rdfs:label "Shear Displacement Structure"@en, "Structure de déplacement cisaillante"@fr ;
+  skos:definition "A shear displacement structure includes all brittle to ductile style structures along which displacement has occurred, from a simple, single ‘planar’ brittle or ductile surface to a fault system comprised of tens of strands of both brittle and ductile nature. This structure may have some significant thickness (a deformation zone) and have an associated body of deformed rock that may be considered a deformation unit (which geologicUnitType is ‘DeformationUnit’) which can be associated to the ShearDisplacementStructure using GeologicFeatureRelation from the GeoSciML Extension"@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent>
+  a owl:Class ;
+  rdfs:comment "SWE:stub" ;
+  rdfs:label "Abstract Simple Component"@en, "Composante simple abstraite"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#Boolean>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Boolean"@en, "Booléen"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#Category>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Category"@en, "Catégorie"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#CategoryRange>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Category Range"@en, "Plage de catégories"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#Count>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Count"@en, "Dénombrement"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#CountRange>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Count Range"@en, "Plage de dénombrement"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#Quantity>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Quantity"@en, "Quantité"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#QuantityRange>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Plage de quantités"@fr, "Quantity Range"@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#Text>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Text"@en, "Texte"@fr .
+
+<http://def.opengeospatial.org/swe-common/2.0#Time>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Temps"@fr, "Time"@en .
+
+<http://def.opengeospatial.org/swe-common/2.0#TimeRange>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.opengeospatial.org/swe-common/2.0#AbstractSimpleComponent> ;
+  rdfs:label "Plage de temps"@fr, "Time Range"@en .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://def.opengeospatial.org/swe-common/2.0#Boolean>
+   <http://def.opengeospatial.org/swe-common/2.0#Category>
+   <http://def.opengeospatial.org/swe-common/2.0#CategoryRange>
+   <http://def.opengeospatial.org/swe-common/2.0#Count>
+   <http://def.opengeospatial.org/swe-common/2.0#CountRange>
+   <http://def.opengeospatial.org/swe-common/2.0#Quantity>
+   <http://def.opengeospatial.org/swe-common/2.0#QuantityRange>
+   <http://def.opengeospatial.org/swe-common/2.0#Text>
+   <http://def.opengeospatial.org/swe-common/2.0#Time>
+   <http://def.opengeospatial.org/swe-common/2.0#TimeRange>
+ ) .

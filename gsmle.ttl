@@ -1,0 +1,207 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://def.isotc211.org/geosciml/gsmle#>
+  a owl:Ontology ;
+  owl:versionIRI <http://def.isotc211.org/geosciml/2018/gsmle#> ;
+  owl:imports <http://def.isotc211.org/geosciml/2018/gsmlb>, <https://github.com/GeoscienceAustralia/geosciml.org/commit/24d302bf3f0fa315c1dddc2c734b84f52299cd02#diff-73b17e22072459ab7e06e9ab664a9d48> .
+
+skos:definition a owl:AnnotationProperty .
+<http://def.isotc211.org/geosciml/gsmlb#EarthMaterial> a owl:Class .
+<http://def.isotc211.org/geosciml/gsmlb#Foliation> a owl:Class .
+<http://def.isotc211.org/geosciml/gsmlb#GeologicEvent> a owl:Class .
+<http://def.isotc211.org/geosciml/gsmlb#GeologicStructure> a owl:Class .
+<http://def.isotc211.org/geosciml/gsmle##AbstractFeatureRelation>
+  a owl:Class ;
+  rdfs:comment "Association class placeholder to describe relations between geologic features."@en ;
+  rdfs:label "Abstract Feature Relation"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##AlterationDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Alteration Description"@en ;
+  skos:definition "AlterationDescription describes aspects of a geologic unit or earth material that are the result of bulk chemical, mineralogical or physical changes related to change in the physical or chemical environment. It includes weathering, supergene alteration, hydrothermal alteration and metasomatic effects not considered metamorphic. For example, a soil profile description would have to be constructed as a GeologicUnit (geologicUnitType = PedologicUnit) with unit parts representing the various horizons in the profile.  Thickness of a weathering profile can be delivered as unitThickness of a GeologicUnit of geologicUnitType equal to “AlterationUnit”"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##BeddingDescription>
+  a owl:Class ;
+  rdfs:label "Bedding Description"@en ;
+  skos:definition "BeddingDescription provides a detailed description of the bedding characteristics of a geologic unit."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ChemicalDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Chemical Description"@en ;
+  skos:definition "ChemicalComposition is a kind of EarthMaterialDescription that delivers the chemical composition of a geological unit or earth material, as a list of element or oxide concentrations."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##CompoundMaterialDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Compound Material Description"@en ;
+  skos:definition "The CompoundMaterialDescription class is a kind of EarthMaterialDescription that provides an extended description of a compound earth material (i.e., rocks and unconsolidated solid earth materials)."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ConstituentPart>
+  a owl:Class ;
+  rdfs:label "Constituent Part"@en ;
+  skos:definition "The ConstituentPart class describes how Earth materials may be made up of other Earth materials, including the proportion of the constituent part in the whole (e.g., 20%, minor, dominant); and the role that the constituent plays in the whole (e.g., matrix, groundmass, framework, phenocryst, xenolith, vein)."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ContactAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Contact Abstract Description"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ContactDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##ContactAbstractDescription> ;
+  rdfs:label "Contact Description"@en ;
+  skos:definition "The ContactDescription provides extended descriptive properties of a geologic contact.  If the contact type is ChronostratigraphicBoundary, it can be associated with a geochronologic (i.e., time zone) boundary that may correlate with it."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##DisplacementEvent>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#GeologicEvent> ;
+  rdfs:label "Displacement Event"@en ;
+  skos:definition "A displacement event is a description of the age, environment and process of a shear displacement event."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##DisplacementValue>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##ShearDisplacementStructureAbstractDescription> ;
+  rdfs:label "Displacement Value"@en ;
+  skos:definition "A displacement value expresses the displacement on a fault with respect to a planar approximation of its shape."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription>
+  a owl:Class ;
+  rdfs:comment "EarthMaterialDescription abstract class is materialised into a series of concrete classes to address various aspects of EarthMaterial descriptions:"@en ;
+  rdfs:label "Earth Material Description"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##FabricDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Fabric Description"@en ;
+  skos:definition "The FabricDescription data type describes all types of fabrics associated with a CompoundMaterial (i.e., tectonic, metamorphic, sedimentary, igneous fabrics or textures).  It denotes a pattern, defined by one or more CompoundMaterial constituents, that is present throughout a rock body when considered at some scale.  FabricDescription is defined based on the average configuration of many constituents.  Penetrative fabric denotes that these constituents are distributed throughout the rock volume at the scale of observation [15], and are repeated at distances that are small relative to the scale of the whole, such that they can be considered to pervade the whole uniformly"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##FoldAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Fold Abstract Description"@en ;
+  skos:definition "An abstract class providing a link between classes in GeoSciMLBasic and GeoSciMLExtended application schemas."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##FoldDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##FoldAbstractDescription> ;
+  rdfs:label "Fold Description"@en ;
+  skos:definition "FoldDescription is an extended descriptive property of a fold structure."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##FoldSystem>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#GeologicStructure> ;
+  rdfs:label "Fold System"@en ;
+  skos:definition "A FoldSystem is a collection of congruent folds (axis and axial surface are parallel) produced by the same tectonic event. It is sometimes referred to as a “fold train”."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##FoliationAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Foliation Abstract Description"@en ;
+  skos:definition "An abstract class providing a link between classes in GeoSciMLBasic and GeoSciMLExtended application schemas."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##GeologicEventAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Geologic Event Abstract Description"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##GeologicEventDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##GeologicEventAbstractDescription> ;
+  rdfs:label "Geologic Event Description"@en ;
+  skos:definition "GeologicEventDescription provides extended description of geologic events through links to GeochronologicEras in the GeologicTimescale model"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##GeologicFeatureRelation>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##AbstractFeatureRelation> ;
+  rdfs:label "Geologic Feature Relation"@en ;
+  skos:definition "The GeologicFeatureRelation class defines the general structure used to define relationships between any GeoSciML feature types.  Relationships are always binary and directional.  There is always a single source and a single target.  The relationship is always defined from the perspective of the Source and is generally an active verb."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##GeologicUnitAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Geologic Unit Abstract Description"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##GeologicUnitDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##GeologicUnitAbstractDescription> ;
+  rdfs:label "Geologic Unit Description"@en ;
+  skos:definition "GeologicUnitDescription provides for extended description of the characteristics of a geologic unit"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##InorganicFluid>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#EarthMaterial> ;
+  rdfs:label "Inorganic Fluid"@en ;
+  skos:definition "An inorganic fluid is a non-crystalline EarthMaterial (solid, liquid, or gas) that tends to flow or conform to the shape of its container (examples: water, brine, glass)..  By convention liquid mercury is considered a mineral.   This class is an empty placeholder for extension at a later date, or by other domain models."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##Layering>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#Foliation> ;
+  rdfs:label "Layering"@en ;
+  skos:definition "A planar foliation is defined by a tabular succession of layers > 5 mm thick. This definition is based on the proposed definition of gneiss by the NADM Science Language Technical Team.  The GeologicStructure characteristic of gneiss is layering."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##MaterialRelation>
+  a owl:Class ;
+  rdfs:comment "The MaterialRelation class describes the relationships between constituent parts in an EarthMaterial (e.g. A mineral overgrowth on a phenocryst within a granite)."@en ;
+  rdfs:label "Material Relation"@en .
+
+<http://def.isotc211.org/geosciml/gsmle##MetamorphicDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Metamorphic Description"@en ;
+  skos:definition "The data type MetamorphicDescription describes the character of metamorphism applied to a CompoundMaterial or GeologicUnit using one or more properties including estimated intensity (grade; e.g. high grade, low grade), characteristic metamorphic mineral assemblages (facies; e.g., greenschist, amphibolite), peak P-T estimates, and protolith material if known.  A MetamorphicDescription provides a link to the GeologicEvent associated to the metamorphic event."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##Mineral>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#EarthMaterial> ;
+  rdfs:label "Mineral"@en ;
+  skos:definition "A naturally occurring inorganic element or compound having a periodically repeating arrangement of atoms and a characteristic chemical composition or range of compositions, resulting in distinctive physical properties.  Includes mercury as a general exception to the requirement of crystallinity.  Also includes crypto-crystalline materials such as chalcedony and amorphous silica."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##NetSlipValue>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##DisplacementValue> ;
+  rdfs:label "Net Slip Value"@en ;
+  skos:definition "NetSlipValue is a kind of DisplacementValue that describes the total amount of slip displacement along a structure."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##OrganicMaterial>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmlb#EarthMaterial> ;
+  rdfs:label "Organic Material"@en ;
+  skos:definition "OrganicMaterial is an EarthMaterial that belongs to the class of chemical compounds having a reduced carbon basis (as distinct from carbonates), and derived from living organisms. It includes high-carbon EarthMaterials such as bitumen, peat, and coal.  This class is an empty placeholder for extension at a later date, or by other domain models."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##Organism>
+  a owl:Class ;
+  rdfs:label "Organism"@en ;
+  skos:definition "Organism is a broad class to represent any living or once living things. This is the connection to taxonomy/biology for fossils.  This class is an empty placeholder for extension at a later date, or by other domain models."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ParticleGeometryDescription>
+  a owl:Class ;
+  rdfs:label "Particle Geometry Description"@en ;
+  skos:definition "ParticleGeometryDescription describes particles in a CompoundMaterial independent of their relationship to each other or their orientation. It is distinguished from Fabric in that the ParticleGeometryDescription remains constant if the material is disaggregated into its constituent particles, whereas Fabric is lost if the material is disaggregated.  Properties include the particle size (grainsize), particle sorting (size distribution, e.g., well sorted, poorly sorted, bimodal sorting), particle shape (surface rounding or crystal face development, e.g., well rounded, euhedral, anhedral), and particle aspect ratio (e.g., elongated, platy, bladed, compact, acicular)."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##PhysicalDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Physical Description"@en ;
+  skos:definition "PhysicalDescription is a class that describes the numeric physical properties of a geologic unit, earth material , or geologic structure, (e.g., density, porosity, magnetic susceptibility, remanent magnetism).  These properties are modelled here as scalar numeric values."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##RockMaterialDescription>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##EarthMaterialAbstractDescription> ;
+  rdfs:label "Rock Material Description"@en ;
+  skos:definition "RockMaterialDescription provides extended description of RockMaterial."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##SeparationValue>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##DisplacementValue> ;
+  rdfs:label "Separation Value"@en ;
+  skos:definition "SeparationValue is a kind of DisplacementValue that describes the amount of separation displacement across a structure."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##ShearDisplacementStructureAbstractDescription>
+  a owl:Class ;
+  rdfs:label "Shear Displacement Structure Abstract Description"@en ;
+  skos:definition "An abstract class providing a link between classes in GeoSciMLBasic and GeoSciMLExtended application schemas."@en .
+
+<http://def.isotc211.org/geosciml/gsmle##SlipComponents>
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/geosciml/gsmle##DisplacementValue> ;
+  rdfs:label "Slip Components"@en ;
+  skos:definition "SlipComponents is a kind of DisplacementValue that is a representation of slip as a vector resolved into components within a reference frame in which horizontal axes are parallel and perpendicular to the strike of the fault.  At least one of heave, horizontalSlip, or throw must not be null."@en .
