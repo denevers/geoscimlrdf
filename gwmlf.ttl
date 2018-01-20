@@ -1,24 +1,55 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gwmlf: <http://def.isotc211.org/gwml/gwmlf#>.
 
-gwmlb:GW_Discharge
+gwmlf:
+  a owl:Ontology ;
+  owl:versionIRI <http://def.isotc211.org/gwml/2018/gwmlf#> ;
+  owl:imports <http://def.isotc211.org/geosciml/2018/gsmlf#> .
+
+gwmlf:GW_Discharge
   a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_InterFlow .
+  rdfs:subClassOf gwmlf:GW_InterFlow;
+  rdfs:label "Discharge"@en;
+  skos:definition "An outflow of fluid from a container such as an aquifer, watershed, pipe, etc."@en.
   
-gwmlb:GW_Flow
+  
+gwmlf:GW_Flow
   a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_FlowSystem .
+  rdfs:subClassOf gwmlf:GW_FlowSystem;
+  rdfs:label "Flow"@en;
+  skos:definition "Process by which the water enters or exits a hydrogeologic unit or a void, or flows within a unit or a void. Can flow from/to other natural or man-made features such as rivers, "@en.
   
   
-gwmlb:GW_FlowSystem
+gwmlf:GW_FlowSystem
   a owl:Class ;
   rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature> ;
   rdfs:label "Flow system"@en ;
   skos:definition "Flow path from recharge to discharge location, through hydrogeologic units, and related to a groundwater body. It is a collection or aggregation of specific flows."@en .
 
-gwmlb:GW_InterFlow
+gwmlf:GW_InterFlow
   a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_Flow .
+  rdfs:subClassOf gwmlf:GW_Flow;
+  rdfs:label "Interflow"@en;
+  skos:definition "Fluid flow between features through an interface, exiting one feature and entering another. Features into which fluid is flowing are usually units, voids, or fluid bodies, but can be natural surface water features such as rivers or lakes, or even man-made features such as dams or canals. Likewise for features where water is exiting."@en.
   
-gwmlb:GW_Recharge
+gwmlf:GW_IntraFlow
+	a owl:Class;
+	rdfs:subClassOf gwmlf:GW_Flow;
+	rdfs:label "Intraflow"@en;
+	skos:definition "Fluid flow within a feature such as a unit, void, groundwater body, or even a man-made feature such as a conduit of some kind."@en.
+
+gwmlf:GW_Recharge
   a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_InterFlow .
+  rdfs:subClassOf gwmlf:GW_InterFlow;
+  rdfs:label "Recharge"@en;
+  skos:definition "Fluid added to an aquifer by various means such as precipitation, injection, etc."@en.
+  
+gwmlf:GW_WaterBudget
+	a owl:Class;
+	rdfs:label "Water Budget"@en;
+	skos:definition "An accounting of the water input and output of a hydrogeologic unit, at a particular point in time, with a description of inflows and outflows."@en.
+	
+	
   
