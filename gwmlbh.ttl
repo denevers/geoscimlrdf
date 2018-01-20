@@ -19,11 +19,30 @@ gwmlbh:
   owl:versionIRI <http://def.isotc211.org/gwml/2018/gwmlbh#> ;
   owl:imports <http://def.seegrid.csiro.au/ontology/om/sam-lite>,<https://rawgit.com/w3c/sdw/gh-pages/ssn/integrated/sosa.ttl> .
   
-gsmlbh:GW_Well
+gwmlbh:GW_Well
 	a owl:Class;
 	rdfs:subClassOf samfl:SamplingCurve;
 	rdfs:label "Water Well"@en,"Puits"@fr;
 	skos:definition "A shaft or hole sunk, dug or drilled into the Earth to observe, extract or inject water (after IGH1397)."@en.
+	
+gwmlbh:GW_MonitoringSite
+	a owl:Class;
+	rdfs:subClassOf samfl:SpatialSamplingFeature;
+	rdfs:label "Monitoring Site"@en;
+	skos:definition "Observation site (e.g. well) used to watch for the advent of an anticipated condition, generally undesirable, such as the advance of the salt-water front in a coastal area where salt-water encroachment is occurring, or the movement of a pollutant injected into a disposal well. IGH0806"@en.
+	
+gwmlbh:GW_Spring
+	a owl:Class;
+	rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature>;
+	rdfs:label "Spring"@en;
+	skos:definition "Any natural situation where groundwater flows to the surface of the earth."@en.
+	
+gwmlbh:GW_Licence
+	a owl:Class;
+	rdfs:label "Licence"@en;
+	skos:definition "Licence relating to the drilling of the well or to the extraction of groundwater."@en.
+
+
   
 
 
