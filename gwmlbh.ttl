@@ -1,0 +1,29 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gwmlbh: <http://def.isotc211.org/gwml/gwmlbh#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix schema: <http://schema.org/>.
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix samfl: <http://def.seegrid.csiro.au/ontology/om/sam-lite#> .
+
+gwmlbh:
+  a owl:Ontology ;
+  owl:versionIRI <http://def.isotc211.org/gwml/2018/gwmlbh#> ;
+  owl:imports <http://def.seegrid.csiro.au/ontology/om/sam-lite>,<https://rawgit.com/w3c/sdw/gh-pages/ssn/integrated/sosa.ttl> .
+  
+gsmlbh:GW_Well
+	a owl:Class;
+	rdfs:subClassOf samfl:SamplingCurve;
+	rdfs:label "Water Well"@en,"Puits"@fr;
+	skos:definition "A shaft or hole sunk, dug or drilled into the Earth to observe, extract or inject water (after IGH1397)."@en.
+  
+
+
