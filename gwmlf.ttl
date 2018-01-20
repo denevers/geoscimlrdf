@@ -1,0 +1,24 @@
+
+gwmlb:GW_Discharge
+  a owl:Class ;
+  rdfs:subClassOf gwmlb:GW_InterFlow .
+  
+gwmlb:GW_Flow
+  a owl:Class ;
+  rdfs:subClassOf gwmlb:GW_FlowSystem .
+  
+  
+gwmlb:GW_FlowSystem
+  a owl:Class ;
+  rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature> ;
+  rdfs:label "Flow system"@en ;
+  skos:definition "Flow path from recharge to discharge location, through hydrogeologic units, and related to a groundwater body. It is a collection or aggregation of specific flows."@en .
+
+gwmlb:GW_InterFlow
+  a owl:Class ;
+  rdfs:subClassOf gwmlb:GW_Flow .
+  
+gwmlb:GW_Recharge
+  a owl:Class ;
+  rdfs:subClassOf gwmlb:GW_InterFlow .
+  

@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix gwmlc <http://def.isotc211.org/gwml/gwmlc#>.
+
+gwmlf:
+  a owl:Ontology ;
+  owl:versionIRI <http://def.isotc211.org/gwml/2018/gwmlc#> ;
+  owl:imports <http://def.isotc211.org/geosciml/2018/gsmlc#> .
+  
+gwmlc:GW_Constituent 
+	a owl:Class;
+	rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature>;
+	rdfs:label "Constituent"@en;
+	skos:definition "General (abstract) entity denoting a material, chemical or biological constituent of a fluid body."@en.
+
+gwmlc:GW_BiologicConstituent
+	a owl:Class;
+	rdfs:subClassOf gwmlc:GW_Constitent;
+	rdfs:label "Biologic Constiuent "@en;
+	skos:definition "Characterisation of the biological composition of the fluid body, both natural and man-made."@en.
+	
+gwmlc:GW_ChemicalConstituent
+	a owl:Class;
+	rdfs:subClassOf gwmlc:GW_Constituent;
+	rdfs:label "Chemical Constituent"@en;
+	skos:definition "Characterisation of the chemical composition of the fluid body, both natural and man-made."@en.
+	
+gwmlc:GW_MaterialConstituent
+	a owl:Class;
+	rdfs:subClassOf gwmlc:GW_Constituent;
+	rdfs:label "Material Constituent"@en;
+	skos:definition "Suspende or colloidal material in a fluid body, e.g sediment. "@en.
+	
+#  template
+	a owl:Class;
+	rdfs:subClassOf ;
+	rdfs:label " "@en;
+	skos:definition " "@en.

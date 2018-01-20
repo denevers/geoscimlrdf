@@ -45,9 +45,6 @@ gwmlb:GW_ConfiningBed
   rdfs:label "Confining bed"@en ;
   skos:definition "A layer of rock having very low porosity and in consequence hydraulic conductivity that hampers the movement of water into and out of an aquifer (Heath 1983)"@en .
 
-gwmlb:GW_Discharge
-  a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_InterFlow .
 
 gwmlb:GW_Divide
   a owl:Class ;
@@ -55,15 +52,7 @@ gwmlb:GW_Divide
   rdfs:label "Divide"@en ;
   skos:definition "Line on a water table or piezometric surface on either side of which the groundwater flow diverges. IGH0556"@en .
 
-gwmlb:GW_Flow
-  a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_FlowSystem .
 
-gwmlb:GW_FlowSystem
-  a owl:Class ;
-  rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature> ;
-  rdfs:label "Flow system"@en ;
-  skos:definition "Flow path from recharge to discharge location, through hydrogeologic units, and related to a groundwater body. It is a collection or aggregation of specific flows."@en .
 
 gwmlb:GW_FluidBody
   a owl:Class ;
@@ -82,9 +71,7 @@ gwmlb:GW_HydrogeoVoid
   rdfs:subClassOf <http://def.isotc211.org/iso19109/2015/GeneralFeatureModel#AnyFeature> ;
   skos:definition "Hydrogeological void"@en, "Voids represent the spaces inside (hosted by) a unit or its material. E.g. the pores in an aquifer, or in the sandstone of an aquifer. Voids are hosted by a container (e.g. an aquifer), and can contain water bodies. Voids are differentiated from 'porosity' in that porosity is the proportion of void volume to total volume (i.e. container + voids), while voids are the spaces themselves. Their delineation as a distinct entity is necessary, for example, to capture the volume of fractures in an aquifer"@en .
 
-gwmlb:GW_InterFlow
-  a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_Flow .
+
 
 gwmlb:GW_ManagementArea
   a owl:Class ;
@@ -97,21 +84,3 @@ A placeholder (stub) to associated  legislative and reference documentation is p
 The GW_ManagementArea class identifies properties associated with managing a human defined area over real world features, in this case groundwater related features. As such, this class could provide a pattern for a more generic OGC 'trans-domain' feature management class."  
 This class is equivalent to Inspire AM:ManagementRestrictionOrRegulationZone."""@en .
 
-gwmlb:GW_Mixture
-  a owl:Class ;
-  rdfs:label "Mixture"@en ;
-  skos:definition "The nature of the inclusion of the constituent in the fluid body, e.g. suspension, emulsion, etc."@en .
-
-gwmlb:GW_Recharge
-  a owl:Class ;
-  rdfs:subClassOf gwmlb:GW_InterFlow .
-
-gwmlb:GW_UnitFluidProperty
-  a owl:Class ;
-  rdfs:label "Unit fluid property"@en ;
-  skos:definition "A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity"@en .
-
-gwmlb:GW_UnitVoidProperty
-  a owl:Class ;
-  rdfs:label "Unit void property"@en ;
-  skos:definition "A measured or calculated physical or hydraulic property that can be inherent in either an aquifer or its material, and some fluid body, e.g. hydraulic conductivity, transmissivity, storativity, permeability, porosity."@en .
