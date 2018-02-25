@@ -1,0 +1,555 @@
+@prefix swe:   <urn:x-gsml-rdf:types> .
+@prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
+@prefix iso19150-2: <http://def.isotc211.org/iso19150/-2/2012/base#> .
+@prefix gsp:   <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix gwml2wc: <http://gwml.org/ont/gwml2wc#> .
+
+gwml2wc:screenMaterial
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Material that makes up the screen. E.g. metal, steel, iron, copper, brass, bronze, everdur, Armco metal, veriperm, stone, plastic, PVC, ABS, Fibreglass, etc."@en .
+
+gwml2wc:to  a            owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Position of the bottom (farthest to the surface) of the component"@en .
+
+gwml2wc:from  a          owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Position of the top (nearest to the surface) of the component"@en .
+
+gwml2wc:screenPlacement
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Screen placement method. E.g. bail down, pull back, jetted, washed down, etc."@en .
+
+gwml2wc:filterMaterial
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Material used in the filtration device. E.g. gravel, pit run, silica sand, washed sand, crushed rock, etc."@en .
+
+gwml2wc:collarElevationType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of reference elevation, defined as a feature, e.g. Top of Casing, Ground, etc."@en .
+
+gwml2wc:bholeMaterialCustodian
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The custodian of the drill core or samples recovered from the borehole."@en .
+
+gwml2wc:screenElement
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:ScreenComponent ;
+        skos:definition  "Relation between a screen and its parts."@en .
+
+gwml2wc:FiltrationComponent
+        a                owl:Class ;
+        rdfs:subClassOf  gwml2wc:ConstructionComponent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:filterMaterial
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:filterGrainSize
+                         ] ;
+        skos:definition  "Material used to filter the fluid in a borehole or well."@en .
+
+gwml2wc:bholeDrillingMethod
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Method of drilling."@en .
+
+gwml2wc:bholeOperator
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Organisation responsible for commissioning the borehole (as opposed to drilling the borehole)"@en .
+
+gwml2wc:casingSlit  a    owl:ObjectProperty ;
+        rdfs:range       gwml2wc:CasingComponent ;
+        skos:definition  "Casing slit opposing water bearing zones before plugging.\r\ncasing slit opposing water bearing zones before plugging"@en .
+
+gwml2wc:WellConstruction
+        a                      owl:Class ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "Construction components of the well. These are particularly important when assessing results of pump tests."@en .
+
+gwml2wc:installationDate
+        a                owl:ObjectProperty ;
+        rdfs:range       time:Instant ;
+        skos:definition  "Date of installation of the equipment."@en .
+
+gwml2wc:bholeHeadworks
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:BoreCollar ;
+        skos:definition  "Relation between a borehole and its collar, which represents the top construction component of the borehole."@en .
+
+gwml2wc:bholeCoreInterval
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The geometries for the intervals from which core is extracted along the borehole."@en .
+
+gwml2wc:bholeStartPoint
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Describes the location of the start of the borehole, e.g. ground surface."@en .
+
+gwml2wc:casingWallThickness
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Thickness of the wall of the casing."@en .
+
+gwml2wc:screenHoleLength
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Length of the slots or perforations of the screen."@en .
+
+gwml2wc:filterGrainSize
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Size of the particles of the filtration material."@en .
+
+gwml2wc:installedEquipment
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:Equipment ;
+        skos:definition  "Relation designating the equipment installed in a borehole."@en .
+
+gwml2wc:BoreCollar  a    owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:Borehole ;
+                           owl:onProperty     gwml2wc:bholeDetails
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:SealingComponent ;
+                           owl:onProperty     gwml2wc:collarSeal
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2wc:collarLocation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:collarHeadworkType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:collarElevationType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2wc:collarElevation
+                         ] ;
+        skos:definition  "Topmost component of a borehole construction."@en .
+
+gwml2wc:screenForm  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Form of the screen. E.g. slotted casing, perforated casing, bridge slot casing, wire wrap or continuous slot, wire mesh, shutter or louvered, well point, tube, etc."@en .
+
+gwml2wc:bholeInclinationType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of borehole inclination, e.g. vertical or horizontal."@en .
+
+gwml2wc:screenPerforationMethod
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Method used for perforating the screen. E.g. drill, grinder, axe / chisel, machine, saw, torch, other, etc."@en .
+
+gwml2wc:screenNumber  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Screen number corresponds to hole size and is given in 0.001 inch. The value is expressed as an alphanumeric code.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:casingForm  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Form of material used in the casing. E.g. curbing, cribbing, corrugated, culvert, hose, etc.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:bholeDetails  a  owl:ObjectProperty ;
+        rdfs:range       gwml2wc:Borehole ;
+        skos:definition  "Characteristics of the borehole associated to a specific collar"@en .
+
+gwml2wc:screenExternalDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "External screen diameter."@en .
+
+gwml2wc:collarLocation
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "The geographical location of the collar."@en .
+
+gwml2wc:Casing  a        owl:Class ;
+        rdfs:subClassOf  gwml2wc:WellConstruction ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:CasingComponent ;
+                           owl:onProperty     gwml2wc:casingElement
+                         ] ;
+        skos:definition  "Collection of linings of the borehole."@en .
+
+gwml2wc:bholeDateOfDrilling
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Date of drilling."@en .
+
+gwml2wc:bholeDriller  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The organisation responsible for drilling the borehole (as opposed to commissioning the borehole)"@en .
+
+gwml2wc:Filtration  a    owl:Class ;
+        rdfs:subClassOf  gwml2wc:WellConstruction ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:FiltrationComponent ;
+                           owl:onProperty     gwml2wc:filterElement
+                         ] ;
+        skos:definition  "<font color=\"#0f0f0f\">Collection of filtration components used to filter a fluid body in a well.</font>"@en .
+
+<http://gwml.org/ont/gwml2wc>
+        a                owl:Ontology ;
+        owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <https://www.w3.org/2006/time> , <http://schemas.geosciml.org/rdf/types.ttl> , <http://www.opengis.net/ont/geosparql> ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2wc/2.1.0" ;
+        owl:versionInfo  "2.1.0" ;
+        skos:definition  "Describes the well drilling and construction details."@en .
+
+gwml2wc:casingExternalDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "External diameter of the casing."@en .
+
+gwml2wc:collarHeadworkType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of assembly bolted to the production casing to control the well, and to provide access and protection (e.g. from flooding, vandalism). Example: raised tube, covers, manhole, 'Gattick Cover' flush, concrete ring, etc. (after Fretwell, et al., 2006)."@en .
+
+gwml2wc:casingLeft  a    owl:ObjectProperty ;
+        rdfs:range       gwml2wc:CasingComponent ;
+        skos:definition  "Casing left after plugging"@en .
+
+gwml2wc:screenAttachmentMethod
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Screen attachment method. E.g. telescoped, on casing, on riser pipe, neoprene (K) packer, Lead packer, etc.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:characteristics
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "General characteristics of the equipment."@en .
+
+gwml2wc:screenHoleWidth
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Width of the slots or perforations of the screen."@en .
+
+gwml2wc:screenMake  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Make of the screen."@en .
+
+gwml2wc:screenModel  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Model of the screen"@en .
+
+gwml2wc:screenFitting
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The screen fitting (from the bottom). E.g. bail, open, plug, tail pipe, washdown, etc."@en .
+
+gwml2wc:sealingType  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of sealing. E.g. annular sealing, plugging, etc."@en .
+
+gwml2wc:CasingComponent
+        a                owl:Class ;
+        rdfs:subClassOf  gwml2wc:ConstructionComponent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:casingWallThickness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:casingExternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:casingInternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:casingForm
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:casingCoating
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:casingMaterial
+                         ] ;
+        skos:definition  "A single part of a well casing"@en .
+
+gwml2wc:Sealing  a       owl:Class ;
+        rdfs:subClassOf  gwml2wc:WellConstruction ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:SealingComponent ;
+                           owl:onProperty     gwml2wc:sealingElement
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:CasingComponent ;
+                           owl:onProperty     gwml2wc:casingSlit
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:CasingComponent ;
+                           owl:onProperty     gwml2wc:casingLeft
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:sealingGroutingPlacementMethod
+                         ] ;
+        skos:definition  "Collection of materials that prevent undesirable elements from entering the borehole."@en .
+
+gwml2wc:sealingElement
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:SealingComponent ;
+        skos:definition  "Relation between a seal and its parts."@en .
+
+gwml2wc:sealingGroutingPlacementMethod
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Method of placing the sealing grouting."@en .
+
+gwml2wc:collarSeal  a    owl:ObjectProperty ;
+        rdfs:range       gwml2wc:SealingComponent ;
+        skos:definition  "Relation between a bore collar and its sealing parts."@en .
+
+gwml2wc:equipmentType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of equipment."@en .
+
+gwml2wc:screenInternalDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Internal screen diameter."@en .
+
+gwml2wc:collarElevation
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "The elevation of the bore collar with CRS and UOM."@en .
+
+gwml2wc:Screen  a        owl:Class ;
+        rdfs:subClassOf  gwml2wc:WellConstruction ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:ScreenComponent ;
+                           owl:onProperty     gwml2wc:screenElement
+                         ] ;
+        skos:definition  "Collection of components of the water pump screen."@en .
+
+gwml2wc:ConstructionComponent
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:to
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:from
+                         ] ;
+        skos:definition  "Elements used in borehole construction."@en .
+
+gwml2wc:Borehole  a      owl:Class ;
+        rdfs:subClassOf  sf:SF_SamplingCurve ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:BoreCollar ;
+                           owl:onProperty     gwml2wc:bholeHeadworks
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeInclinationType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeStartPoint
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeDateOfDrilling
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:WellConstruction ;
+                           owl:onProperty     gwml2wc:bholeConstruction
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:Equipment ;
+                           owl:onProperty     gwml2wc:installedEquipment
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeMaterialCustodian
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:bholeNominalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeDriller
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeDrillingMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeCoreInterval
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeOperator
+                         ] ;
+        skos:definition  "General term for a hole drilled in the ground for various purposes such extraction of a core, release of fluid, etc."@en .
+
+gwml2wc:casingInternalDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Internal diameter of the casing."@en .
+
+gwml2wc:screenCoating
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Thin outer layer applied to the screen. E.g. galvanized, stainless, copper bearing, low carbon, black, porous, etc.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:Equipment  a     owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  time:Instant ;
+                           owl:onProperty     gwml2wc:installationDate
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:equipmentType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:characteristics
+                         ] ;
+        skos:definition  "Equipment installed in a borehole (like a pump or any other device)."@en .
+
+gwml2wc:sealingMaterial
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Material used in the sealing component of a water well. E.g. formation packer, welded ring, shale trap, drive shoe, driven casing, etc."@en .
+
+gwml2wc:ScreenComponent
+        a                owl:Class ;
+        rdfs:subClassOf  gwml2wc:ConstructionComponent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenMaterial
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenAttachmentMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenInternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenPerforationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenHoleWidth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenWallThickness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenPlacement
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenHoleLength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenCoating
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenNumber
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenModel
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenForm
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenExternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenFitting
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenMake
+                         ] ;
+        skos:definition  "Component of the well lining where water enters the well."@en .
+
+gwml2wc:casingCoating
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Coating applied to the casing. E.g. galvanized, stainless, mild, low carbon, copper bearing, black, etc.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:casingMaterial
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Material in which the casing is made. Can be metal, steel, iron, concrete, wood, brick, plastic, teflon, PVC, ABS, fibre glass, asbestos cement, unknown, other.\r\nGroundwater Data Management Guidelines, Environment Canada, Dec. 1991"@en .
+
+gwml2wc:casingElement
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:CasingComponent ;
+        skos:definition  "Relation between a casing and its parts."@en .
+
+gwml2wc:screenWallThickness
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Thickness of the screen walls."@en .
+
+gwml2wc:bholeConstruction
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:WellConstruction ;
+        skos:definition  "Relation between a borehole and its construction components."@en .
+
+gwml2wc:SealingComponent
+        a                owl:Class ;
+        rdfs:subClassOf  gwml2wc:ConstructionComponent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:sealingType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:sealingMaterial
+                         ] ;
+        skos:definition  "A material used for sealing the construction of a borehole or well."@en .
+
+gwml2wc:filterElement
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2wc:FiltrationComponent ;
+        skos:definition  "Relation between a filtration device and its parts."@en .
+
+gwml2wc:bholeNominalDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Diameter of the borehole."@en .

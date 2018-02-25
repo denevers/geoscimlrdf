@@ -1,0 +1,148 @@
+@prefix gwml2c: <http://gwml.org/ont/gwml2c#> .
+@prefix iso19150-2: <http://def.isotc211.org/iso19150/-2/2012/base#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+gwml2c:gwChemical  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Chemical component type, e.g. arsenic."@en .
+
+gwml2c:gwConstituedOf
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2c:GW_Constituent ;
+        skos:definition  "Relates to the constituent which a constituent is part of"@en .
+
+gwml2c:gwMaterial  a     owl:ObjectProperty ;
+        rdfs:range       gwml2c:MaterialConstituentTerm ;
+        skos:definition  "Name of the suspended or colloid material in the fluid body, e.g. a lithology or mineral name."@en .
+
+gwml2c:gwConstituentRelationType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of relation between fluid body components, typically caused by a specific mechanism, e.g. coating (from adsorption), constitution (from chemical bonding forming a new material), aggregation (from physical bonding, e.g. pressure), containment (from absorption, digestion)."@en .
+
+gwml2c:MaterialConstituentTerm
+        a                owl:Class ;
+        rdfs:subClassOf  [ a            owl:Class ;
+                           owl:unionOf  ( [ a                   owl:Class ;
+                                            owl:intersectionOf  ( [ a                   owl:Restriction ;
+                                                                    owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                    owl:onProperty      gwml2c:lithologyName
+                                                                  ]
+                                                                  [ a                owl:Restriction ;
+                                                                    owl:cardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                    owl:onProperty   gwml2c:mineralName
+                                                                  ]
+                                                                )
+                                          ]
+                                          [ a                   owl:Class ;
+                                            owl:intersectionOf  ( [ a                owl:Restriction ;
+                                                                    owl:cardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                    owl:onProperty   gwml2c:lithologyName
+                                                                  ]
+                                                                  [ a                   owl:Restriction ;
+                                                                    owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                                                                    owl:onProperty      gwml2c:mineralName
+                                                                  ]
+                                                                )
+                                          ]
+                                        )
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:mineralName
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:lithologyName
+                         ] .
+
+gwml2c:GW_MaterialConstituent
+        a                owl:Class ;
+        rdfs:subClassOf  gwml2c:GW_Constituent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2c:MaterialConstituentTerm ;
+                           owl:onProperty     gwml2c:gwMaterial
+                         ] ;
+        skos:definition  "Suspended or colloidal material in a fluid body, e.g sediment."@en .
+
+gwml2c:gwConstituentRelationMechanism
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Mechanisms by which materials (of various states) come into a relationship, e.g. sorption, precipitation, digestion, excretion, etc."@en .
+
+<http://gwml.org/ont/gwml2c>
+        a                owl:Ontology ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2c/2.1.0" ;
+        owl:versionInfo  "2.1.0" ;
+        skos:definition  "Describes the groundwater fluid body constituents and their relationships."@en .
+
+gwml2c:GW_BiologicConstituent
+        a                owl:Class ;
+        rdfs:label       "GroundwaterBiology"@en ;
+        rdfs:subClassOf  gwml2c:GW_Constituent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:gwOrganism
+                         ] ;
+        skos:definition  "Characterisation of the biological composition of the fluid body, both natural and man-made."@en .
+
+gwml2c:gwState  a        owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The physical state of the constituent, i.e. solid, liquid, or gas."@en .
+
+gwml2c:GW_ChemicalConstituent
+        a                owl:Class ;
+        rdfs:label       "GroundwaterChemistry"@en ;
+        rdfs:subClassOf  gwml2c:GW_Constituent ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:gwChemical
+                         ] ;
+        skos:definition  "Characterisation of the chemical composition of the fluid body, both natural and man-made."@en .
+
+gwml2c:lithologyName  a  owl:ObjectProperty ;
+        rdfs:range  skos:Concept .
+
+gwml2c:gwOrganism  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Biological species."@en .
+
+gwml2c:gwConstituent  a  owl:ObjectProperty ;
+        rdfs:range       gwml2c:GW_Constituent ;
+        skos:definition  "Relates to constituents composing another constituent"@en .
+
+gwml2c:GW_ConstituentRelation
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:gwConstituentRelationMechanism
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2c:gwConstituentRelationType
+                         ] ;
+        skos:definition  "Relation between fluid body components, typically caused by a specific mechanism, e.g. coating (from adsorption), constitution (from chemical bonding forming a new material), aggregation (from physical bonding, e.g. pressure), containment (from absorption, digestion)."@en .
+
+gwml2c:GW_Constituent
+        a                      owl:Class ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  gwml2c:GW_Constituent ;
+                                 owl:onProperty     gwml2c:gwConstituedOf
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  gwml2c:GW_Constituent ;
+                                 owl:onProperty     gwml2c:gwConstituent
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2c:gwState
+                               ] ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "General (abstract) entity denoting a material, chemical or biological constituent of a fluid body."@en .
+
+gwml2c:mineralName  a  owl:ObjectProperty ;
+        rdfs:range  skos:Concept .

@@ -1,0 +1,16 @@
+@prefix gwml2at: <http://gwml.org/ont/gwml2at#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://gwml.org/ont/gwml2at>
+        a                owl:Ontology ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2at/2.1.0" ;
+        owl:versionInfo  "2.1.0" ;
+        skos:definition  "Describes aquifer tests, such as pump test, tracing or any other procedures aimed at estimating groundwater or aquifer properties."@en .
+
+gwml2at:GW_AquiferTest
+        a                owl:Class ;
+        skos:definition  "Signature class representing a aquifer test (or pump test). It describes the inputs, outputs, and methods associated with such a test."@en .

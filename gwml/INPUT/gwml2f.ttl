@@ -1,0 +1,200 @@
+@prefix gwml2f: <http://gwml.org/ont/gwml2f#> .
+@prefix iso19150-2: <http://def.isotc211.org/iso19150/-2/2012/base#> .
+@prefix gsp:   <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+gwml2f:gwFlowSourceContainer
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The feature from which water is flowing."@en .
+
+gwml2f:gwFlowProcess  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The process causing the flow, e.g. evapotranspiration, evaporation, transpiration, runoff, baseflow, pumping, infiltration, injection, etc."@en .
+
+gwml2f:gwBudgetRecharge
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2f:GW_Recharge ;
+        skos:definition  "Recharge (inflows) considered by the budget."@en .
+
+gwml2f:gwFlowDestinationBody
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The feature into which water is flowing."@en .
+
+gwml2f:gwFlowSourceBody
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The feature from which water is flowing."@en .
+
+gwml2f:gwFlowDestinationContainer
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The feature into which water is flowing."@en .
+
+gwml2f:gwBudgetAmount
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Final quantity (sum) of the budget.  If recharge = discharge, the sum is 0."@en .
+
+gwml2f:GW_WaterBudget
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2f:gwBudgetValidTime
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2f:GW_Recharge ;
+                           owl:onProperty     gwml2f:gwBudgetRecharge
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2f:GW_Discharge ;
+                           owl:onProperty     gwml2f:gwBudgetDischarge
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2f:gwBudgetAmount
+                         ] ;
+        skos:definition  "An accounting of the water input and output of a hydrogeologic unit, at a particular point in time, with a description of inflows and outflows."@en .
+
+gwml2f:gwFlowTime  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Refers to the duration, instant or interval of the flow (actual time, not observation time). E.g. \"yearly\", \"summer\", \"2009\" or \"2009-2011\"."@en .
+
+gwml2f:gwFlowVelocity
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Measure of water volume per unit of time"@en .
+
+gwml2f:gwFlowBody  a     owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The fluid body that is flowing."@en .
+
+gwml2f:gwBudgetDischarge
+        a                owl:ObjectProperty ;
+        rdfs:range       gwml2f:GW_Discharge ;
+        skos:definition  "Discharge (outflows) considered in the budget."@en .
+
+gwml2f:GW_Discharge  a   owl:Class ;
+        rdfs:subClassOf  gwml2f:GW_InterFlow ;
+        skos:definition  "An outflow of fluid from a container such as an aquifer, watershed, pipe, etc."@en .
+
+gwml2f:GW_InterFlow  a   owl:Class ;
+        rdfs:subClassOf  gwml2f:GW_Flow ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowSourceContainer
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowSourceBody
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2f:GW_InterFlow.gwFlowLocation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowInterfaceFeature
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowDestinationContainer
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowDestinationBody
+                         ] ;
+        skos:definition  "Fluid flow between features through an interface, exiting one feature and entering another. Features into which fluid is flowing are usually units, voids, or fluid bodies, but can be natural surface water features such as rivers or lakes, or even man-made features such as dams or canals. Likewise for features where water is exiting."@en .
+
+gwml2f:GW_IntraFlow  a   owl:Class ;
+        rdfs:subClassOf  gwml2f:GW_Flow ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2f:GW_IntraFlow.gwFlowLocation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowContainer
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2f:gwFlowBody
+                         ] ;
+        skos:definition  "Fluid flow within a feature such as a unit, void, groundwater body, or even a man-made feature such as a conduit of some kind."@en .
+
+gwml2f:GW_Flow  a              owl:Class ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2f:gwFlowVolumeRate
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2f:gwFlowVelocity
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2f:gwFlowTime
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2f:gwFlowProcess
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2f:gwFlowPersistence
+                               ] ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "Process by which the water enters or exits a hydrogeologic unit or a void, or flows within a unit or a void. Can flow from/to other natural or man-made features such as rivers, filtration stations, etc."@en .
+
+gwml2f:gwFlowInterfaceFeature
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The feature that denotes the interface between, for example, the groundwater and surface, such as a well, spring, seep, etc., or between two aquifers."@en .
+
+gwml2f:gwBudgetValidTime
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Validity time of this budget (eg, 2010)."@en .
+
+gwml2f:GW_Recharge  a    owl:Class ;
+        rdfs:subClassOf  gwml2f:GW_InterFlow ;
+        skos:definition  "Fluid added to an aquifer by various means such as precipitation, injection, etc."@en .
+
+gwml2f:gwFlowContainer
+        a                owl:ObjectProperty ;
+        rdfs:range       gsp:Feature ;
+        skos:definition  "The entity in which the groundwater is flowing. Typically a unit, void, or gw body, but also be a man made feature such as some conduit."@en .
+
+gwml2f:gwFlowPersistence
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The regularity of flow occurrence, e.g. ephemeral, intermittent, perennial, seasonal. After http://inspire.ec.europa.eu/codeList/WaterPersistenceValue/ (INSPIRE 2013)."@en .
+
+<http://gwml.org/ont/gwml2f>
+        a                owl:Ontology ;
+        owl:imports      <http://www.opengis.net/ont/geosparql> ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2f/2.1.0" ;
+        owl:versionInfo  "2.1.0" ;
+        skos:definition  "Describes the elements required to capture groundwater flow information."@en .
+
+gwml2f:GW_IntraFlow.gwFlowLocation
+        a                owl:ObjectProperty ;
+        rdfs:domain      gwml2f:GW_IntraFlow ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "The location where groundwater is flowing within a feature."@en .
+
+gwml2f:gwFlowVolumeRate
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Measure of water quantity per time period with uom."@en .
+
+gwml2f:GW_InterFlow.gwFlowLocation
+        a                owl:ObjectProperty ;
+        rdfs:domain      gwml2f:GW_InterFlow ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "The location at which water is being transferred from one one feature into another."@en .
