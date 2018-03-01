@@ -7,8 +7,8 @@
 
 <http://gwml.org/ont/gwml2at>
         a                owl:Ontology ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2at/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2at/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
         skos:definition  "Describes aquifer tests, such as pump test, tracing or any other procedures aimed at estimating groundwater or aquifer properties."@en .
 
 gwml2at:GW_AquiferTest

@@ -47,28 +47,24 @@ gwml2w:GW_Spring  a      owl:Class ;
                            owl:onProperty     gwml2w:gwSpringReferenceElevation
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
-                           owl:onProperty     gwml2w:gwSpringUnit
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  owl:Class ;
                            owl:onProperty     gwml2w:gwSpringConstruction
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwSpringGeology
+                           owl:allValuesFrom  gwml2:GW_FluidBody ;
+                           owl:onProperty     gwml2w:gwSpringBody
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  xsd:string ;
                            owl:onProperty     gwml2w:gwSpringName
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Geometry ;
-                           owl:onProperty     gwml2w:gwSpringLocation
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2w:gwSpringType
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwSpringType
+                           owl:onProperty     gwml2w:gwSpringCauseType
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
@@ -79,12 +75,16 @@ gwml2w:GW_Spring  a      owl:Class ;
                            owl:onProperty     gwml2w:gwSpringLicence
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_FluidBody ;
-                           owl:onProperty     gwml2w:gwSpringBody
+                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
+                           owl:onProperty     gwml2w:gwSpringUnit
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2w:gwSpringLocation
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwSpringCauseType
+                           owl:onProperty     gwml2w:gwSpringGeology
                          ] ;
         skos:definition  "Any natural situation where groundwater flows to the surface of the earth."@en .
 
@@ -106,7 +106,7 @@ gwml2w:GW_MonitoringSite
                            owl:allValuesFrom  gsp:Feature ;
                            owl:onProperty     gwml2w:gwMonitoringHost
                          ] ;
-        skos:definition  "Observation site (e.g. well) used to watch for the advent of an anticipated condition, generally undesirable, such as the advance of the salt-water front in a coastal area where salt-water encroachment is occurring, or the movement of a pollutant injected into a disposal well. IGH0806"@en .
+        skos:definition  "Site of observation related to groundwater."@en .
 
 gwml2w:gwSpringPersistence
         a                owl:ObjectProperty ;
@@ -169,55 +169,7 @@ gwml2w:GW_Well  a        owl:Class ;
         rdfs:subClassOf  sf:SF_SamplingCurve ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellStatus
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_FluidBody ;
-                           owl:onProperty     gwml2w:gwWellBody
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellPurpose
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellStaticWaterDepth
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2w:GW_GeologyLog ;
-                           owl:onProperty     gwml2w:gwWellGeology
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2wc:Borehole ;
-                           owl:onProperty     gwml2w:gwWellConstruction
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellConstructedDepth
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
-                           owl:onProperty     gwml2w:gwWellUnit
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2w:GW_Licence ;
-                           owl:onProperty     gwml2w:gwWellLicence
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Geometry ;
-                           owl:onProperty     gwml2w:gwWellLocation
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2w:gwWellTotalLength
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Geometry ;
-                           owl:onProperty     gwml2w:gwWellContributionZone
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellWaterUse
+                           owl:onProperty     gwml2w:gwWellYield
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2w:Elevation ;
@@ -225,7 +177,55 @@ gwml2w:GW_Well  a        owl:Class ;
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2w:gwWellYield
+                           owl:onProperty     gwml2w:gwWellWaterUse
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2w:GW_GeologyLog ;
+                           owl:onProperty     gwml2w:gwWellGeology
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2w:GW_Licence ;
+                           owl:onProperty     gwml2w:gwWellLicence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2wc:Borehole ;
+                           owl:onProperty     gwml2w:gwWellConstruction
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2w:gwWellStatus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
+                           owl:onProperty     gwml2w:gwWellUnit
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2w:gwWellStaticWaterDepth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2w:gwWellContributionZone
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2w:gwWellPurpose
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2w:gwWellTotalLength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2w:gwWellLocation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2w:gwWellConstructedDepth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2:GW_FluidBody ;
+                           owl:onProperty     gwml2w:gwWellBody
                          ] ;
         skos:definition  "A shaft or hole sunk, dug or drilled into the Earth to observe, extract or inject water (after IGH1397)."@en .
 
@@ -408,8 +408,8 @@ gwml2w:gwTimePeriod  a   owl:ObjectProperty ;
 <http://gwml.org/ont/gwml2w>
         a                owl:Ontology ;
         owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://gwml.org/ont/gwml2wc> , <http://gwml.org/ont/gwml2> , <http://schemas.geosciml.org/rdf/types.ttl> , <http://www.opengis.net/ont/geosparql> ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2w/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2w/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
         skos:definition  "Describes the features and properties associated with water well. Imports WellConstruction."@en .
 
 gwml2w:gwLicenceID  a    owl:DatatypeProperty ;

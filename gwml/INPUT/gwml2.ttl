@@ -135,16 +135,16 @@ gwml2:gwDivideSurface
         rdfs:range       gwml2:GW_BodySurface ;
         skos:definition  "Relates to a surface linked to a groundwater divide"@en .
 
-<http://gwml.org/ont/gwml2>
-        a                owl:Ontology ;
-        owl:imports      <http://gwml.org/ont/gwml2c> , <http://gwml.org/ont/gwml2f> , <http://www.opengis.net/ont/geosparql> , <https://www.w3.org/2006/time> ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
-        skos:definition  "Logical Model for GroundWaterML version 2.0 containing the core elements required for groundwater data. Other GWML2 application schema import this schema."@en .
-
 gwml2:gwBodyFlow  a      owl:ObjectProperty ;
         rdfs:range       gwml2f:GW_Flow ;
         skos:definition  "Flows associated with the fluid body."@en .
+
+<http://gwml.org/ont/gwml2>
+        a                owl:Ontology ;
+        owl:imports      <http://gwml.org/ont/gwml2c> , <http://gwml.org/ont/gwml2f> , <http://www.opengis.net/ont/geosparql> , <https://www.w3.org/2006/time> ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
+        skos:definition  "Logical Model for GroundWaterML version 2.0 containing the core elements required for groundwater data. Other GWML2 application schema import this schema."@en .
 
 gwml2:gwDivideFlow  a  owl:ObjectProperty ;
         rdfs:range  gwml2:GW_FlowSystem .
@@ -155,8 +155,28 @@ gwml2:GW_FluidBody  a    owl:Class ;
                            owl:onProperty     gwml2:gwBodyVulnerability
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2c:GW_Constituent ;
+                           owl:onProperty     gwml2:gwBackgroundConstituent
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
                            owl:onProperty     gwml2:gwFluidBodyUnit
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2:GW_FluidBody ;
+                           owl:onProperty     gwml2:gwPartOfBody
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2f:GW_Flow ;
+                           owl:onProperty     gwml2:gwBodyFlow
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2:gwBodyShape
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2:gwBodyVolume
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
@@ -167,28 +187,8 @@ gwml2:GW_FluidBody  a    owl:Class ;
                            owl:onProperty     gwml2:gwBodySurface
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Geometry ;
-                           owl:onProperty     gwml2:gwBodyShape
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_FluidBody ;
-                           owl:onProperty     gwml2:gwPartOfBody
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2:gwBodyVolume
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2:gwBodyProperty
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2:gwBodyQuality
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2f:GW_Flow ;
-                           owl:onProperty     gwml2:gwBodyFlow
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2c:GW_Constituent ;
@@ -199,12 +199,12 @@ gwml2:GW_FluidBody  a    owl:Class ;
                            owl:onProperty     gwml2:gwFluidBodyVoid
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2c:GW_Constituent ;
-                           owl:onProperty     gwml2:gwBackgroundConstituent
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2:GW_FluidBody ;
                            owl:onProperty     gwml2:gwBodyPartOf
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2:gwBodyQuality
                          ] ;
         skos:definition  "A distinct body of some fluid (liquid, gas) that fills the voids of a container such as an aquifer, system of aquifers, water well, etc; in hydrogeology this body is usually constituted from groundwater, but the model allows for other types of fillers e.g. petroleum."@en .
 
@@ -255,14 +255,6 @@ gwml2:GW_Aquifer  a      owl:Class ;
 gwml2:GW_HydrogeoUnit
         a                      owl:Class ;
         rdfs:subClassOf        [ a                  owl:Restriction ;
-                                 owl:allValuesFrom  gwml2f:GW_WaterBudget ;
-                                 owl:onProperty     gwml2:gwUnitWaterBudget
-                               ] ;
-        rdfs:subClassOf        [ a                  owl:Restriction ;
-                                 owl:allValuesFrom  skos:Concept ;
-                                 owl:onProperty     gwml2:gwUnitMedia
-                               ] ;
-        rdfs:subClassOf        [ a                  owl:Restriction ;
                                  owl:allValuesFrom  gwml2:GW_HydrogeoVoid ;
                                  owl:onProperty     gwml2:gwUnitVoid
                                ] ;
@@ -275,16 +267,24 @@ gwml2:GW_HydrogeoUnit
                                  owl:onProperty     gwml2:gwUnitFluidBody
                                ] ;
         rdfs:subClassOf        [ a                  owl:Restriction ;
-                                 owl:allValuesFrom  skos:Concept ;
-                                 owl:onProperty     gwml2:gwUnitVulnerability
-                               ] ;
-        rdfs:subClassOf        [ a                  owl:Restriction ;
                                  owl:allValuesFrom  gwml2f:GW_Discharge ;
                                  owl:onProperty     gwml2:gwUnitDischarge
                                ] ;
         rdfs:subClassOf        [ a                  owl:Restriction ;
                                  owl:allValuesFrom  gwml2f:GW_Recharge ;
                                  owl:onProperty     gwml2:gwUnitRecharge
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2:gwUnitVulnerability
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  gwml2f:GW_WaterBudget ;
+                                 owl:onProperty     gwml2:gwUnitWaterBudget
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     gwml2:gwUnitMedia
                                ] ;
         rdfs:subClassOf        [ a                  owl:Restriction ;
                                  owl:allValuesFrom  gwml2:GW_ManagementArea ;
@@ -558,6 +558,22 @@ gwml2:gwManagedUnit  a   owl:ObjectProperty ;
 gwml2:GW_ManagementArea
         a                owl:Class ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2:GW_ManagementArea ;
+                           owl:onProperty     gwml2:relatedManagementArea
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
+                           owl:onProperty     gwml2:gwManagedUnit
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  time:Period ;
+                           owl:onProperty     gwml2:gwAreaDesignationPeriod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2:gwAreaSpecialisedAreaType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2:gwAreaEnvironmentalDomain
                          ] ;
@@ -570,12 +586,12 @@ gwml2:GW_ManagementArea
                            owl:onProperty     gwml2:gwAreaType
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Feature ;
-                           owl:onProperty     gwml2:gwAreaFeature
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2f:GW_WaterBudget ;
                            owl:onProperty     gwml2:gwAreaWaterBudget
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Feature ;
+                           owl:onProperty     gwml2:gwAreaFeature
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2:GW_FluidBody ;
@@ -586,28 +602,12 @@ gwml2:GW_ManagementArea
                            owl:onProperty     gwml2:gwAreaYield
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  owl:Class ;
-                           owl:onProperty     gwml2:documentation
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_ManagementArea ;
-                           owl:onProperty     gwml2:relatedManagementArea
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_HydrogeoUnit ;
-                           owl:onProperty     gwml2:gwManagedUnit
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2:gwAreaCompetentAuthority
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  time:Period ;
-                           owl:onProperty     gwml2:gwAreaDesignationPeriod
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2:gwAreaSpecialisedAreaType
+                           owl:allValuesFrom  owl:Class ;
+                           owl:onProperty     gwml2:documentation
                          ] ;
         skos:definition  "The GW_ManagementArea class defines properties associated with areas identified for management purposes. These can be delineated by human factors such as policy or regulation concerns, as well as domain (in this case hydrogeologic or hydrologic) concerns. The management area does not necessarily align exactly with the associated hydrogeologic feature boundaries.  \r\n  \r\nA placeholder (stub) to associated  legislative and reference documentation is provided, as a description of the properties of the associated classes is considered out of scope for GroundWaterML2. The INSPIRE Generic Conceptual Model 'Legislation References' and 'DocumentCitation' classes, created also to cover EU Directives reporting, provides possible candidates for these end association classes.   \r\n  \r\nThe GW_ManagementArea class identifies properties associated with managing a human defined area over real world features, in this case groundwater related features. As such, this class could provide a pattern for a more generic OGC 'trans-domain' feature management class.\"  \r\nThis class is equivalent to Inspire AM:ManagementRestrictionOrRegulationZone"@en .
 
@@ -641,17 +641,25 @@ gwml2:gwSurfaceShapeMetadata
         rdfs:range       skos:Concept ;
         skos:definition  "Date, time, method, etc., of the observation of the surface."@en .
 
-gwml2:gwBodyShape  a     owl:ObjectProperty ;
-        rdfs:range       gsp:Geometry ;
-        skos:definition  "Shape and position of the groundwater body."@en .
-
 gwml2:gwBodyConstituent
         a                owl:ObjectProperty ;
         rdfs:range       gwml2c:GW_Constituent ;
         skos:definition  "Relates a fluid body to its chemical, biologic, or material constituents, and specifies the nature of the mixture of the constituent within the body, e.g. solution, suspension."@en .
 
+gwml2:gwBodyShape  a     owl:ObjectProperty ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "Shape and position of the groundwater body."@en .
+
 gwml2:GW_HydrogeoVoid
         a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2:gwVoidType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     gwml2:gwVoidShape
+                         ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2:GW_HydrogeoVoid ;
                            owl:onProperty     gwml2:gwPartOfVoid
@@ -673,20 +681,12 @@ gwml2:GW_HydrogeoVoid
                            owl:onProperty     gwml2:gwVoidUnit
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2:GW_FluidBody ;
-                           owl:onProperty     gwml2:gwVoidFluidBody
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2:gwVoidType
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2:gwVoidVolume
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gsp:Geometry ;
-                           owl:onProperty     gwml2:gwVoidShape
+                           owl:allValuesFrom  gwml2:GW_FluidBody ;
+                           owl:onProperty     gwml2:gwVoidFluidBody
                          ] ;
         skos:definition  "Voids represent the spaces inside (hosted by) a unit or its material. E.g. the pores in an aquifer, or in the sandstone of an aquifer. Voids can contain fluid bodies. Voids are differentiated from 'porosity' in that porosity is the proportion of void volume to total volume, while voids are the spaces themselves. Voids are required in GWML2, for example, to capture the volume of fractures in an aquifer."@en .
 

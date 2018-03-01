@@ -211,8 +211,8 @@ gwml2wc:Filtration  a    owl:Class ;
 <http://gwml.org/ont/gwml2wc>
         a                owl:Ontology ;
         owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <https://www.w3.org/2006/time> , <http://schemas.geosciml.org/rdf/types.ttl> , <http://www.opengis.net/ont/geosparql> ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2wc/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2wc/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
         skos:definition  "Describes the well drilling and construction details."@en .
 
 gwml2wc:casingExternalDiameter
@@ -367,19 +367,15 @@ gwml2wc:Borehole  a      owl:Class ;
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:bholeInclinationType
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2wc:bholeStartPoint
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:bholeDateOfDrilling
+                           owl:onProperty     gwml2wc:bholeDrillingMethod
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  gwml2wc:WellConstruction ;
-                           owl:onProperty     gwml2wc:bholeConstruction
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeDriller
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  gwml2wc:Equipment ;
@@ -394,12 +390,12 @@ gwml2wc:Borehole  a      owl:Class ;
                            owl:onProperty     gwml2wc:bholeNominalDiameter
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:bholeDriller
+                           owl:allValuesFrom  gwml2wc:WellConstruction ;
+                           owl:onProperty     gwml2wc:bholeConstruction
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:bholeDrillingMethod
+                           owl:onProperty     gwml2wc:bholeInclinationType
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
@@ -408,6 +404,10 @@ gwml2wc:Borehole  a      owl:Class ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2wc:bholeOperator
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:bholeDateOfDrilling
                          ] ;
         skos:definition  "General term for a hole drilled in the ground for various purposes such extraction of a core, release of fluid, etc."@en .
 
@@ -446,43 +446,7 @@ gwml2wc:ScreenComponent
         rdfs:subClassOf  gwml2wc:ConstructionComponent ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenMaterial
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenAttachmentMethod
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2wc:screenInternalDiameter
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenPerforationMethod
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2wc:screenHoleWidth
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2wc:screenWallThickness
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenPlacement
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2wc:screenHoleLength
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2wc:screenCoating
-                         ] ;
-        rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenNumber
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
@@ -490,19 +454,55 @@ gwml2wc:ScreenComponent
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
-                           owl:onProperty     gwml2wc:screenForm
+                           owl:onProperty     gwml2wc:screenPerforationMethod
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
-                           owl:allValuesFrom  swe:Quantity ;
-                           owl:onProperty     gwml2wc:screenExternalDiameter
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenNumber
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2wc:screenFitting
                          ] ;
         rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenInternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
                            owl:allValuesFrom  skos:Concept ;
                            owl:onProperty     gwml2wc:screenMake
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenWallThickness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenAttachmentMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenExternalDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenHoleLength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     gwml2wc:screenHoleWidth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenForm
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenMaterial
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     gwml2wc:screenPlacement
                          ] ;
         skos:definition  "Component of the well lining where water enters the well."@en .
 

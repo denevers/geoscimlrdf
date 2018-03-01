@@ -76,8 +76,8 @@ gwml2c:gwConstituentRelationMechanism
 
 <http://gwml.org/ont/gwml2c>
         a                owl:Ontology ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2c/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2c/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
         skos:definition  "Describes the groundwater fluid body constituents and their relationships."@en .
 
 gwml2c:GW_BiologicConstituent

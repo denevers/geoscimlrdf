@@ -178,8 +178,8 @@ gwml2f:gwFlowPersistence
 <http://gwml.org/ont/gwml2f>
         a                owl:Ontology ;
         owl:imports      <http://www.opengis.net/ont/geosparql> ;
-        owl:versionIRI   "http://gwml.org/ont/gwml2f/2.1.0" ;
-        owl:versionInfo  "2.1.0" ;
+        owl:versionIRI   "http://gwml.org/ont/gwml2f/2.2.0" ;
+        owl:versionInfo  "2.2.0" ;
         skos:definition  "Describes the elements required to capture groundwater flow information."@en .
 
 gwml2f:GW_IntraFlow.gwFlowLocation
